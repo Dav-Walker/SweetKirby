@@ -1,0 +1,283 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'core/estilo.css' %}">
+    
+
+</head>
+
+<body>
+    <header>
+        <div id="navbar">
+            <div id="logotitle">
+                <h1 id="title"><a href="index.html">SweetKirby</a></h1>
+                <img src="kirby1mini.png" alt="logo.png" id="logo">
+            </div>
+            <nav id="navbar-brand">
+                <a href="index.html#about" class="navbar-item">Nuestra Tienda</a>
+                <a href="menu.html" target="_self" class="navbar-item">Productos</a>
+                <a href="pedidos.html" class="navbar-item">Pedidos Personalizados</a>
+                <a href="galeria.html" target="_self" class="navbar-item">Galeria</a>
+                <a href="#footer" class="navbar-item">Contactos</a>
+                <div class="cart-container">
+                    <a href="carrito.html" class="navbar-item" type="button">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" alt="carrito" width="30px" />
+                        <div class="buy-card">
+                            <table class="table-buy-card">
+                                <tr>
+                                    <th></th>
+                                    <th class="buy-card-title">Producto</th>
+                                    <th class="buy-card-title">Precio</th>
+                                    <th class="buy-card-title">Cantidad</th>
+                                    <th></th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="https://i.pinimg.com/736x/f5/2c/f6/f52cf6d2475616df2dcd3d37cba0c3e0.jpg"
+                                            class="imagen-compra2" alt="torta" />
+                                    </td>
+                                    <td>
+                                        <span>Torta Oreo</span>
+                                    </td>
+                                    <td>
+                                        <span>$28.000</span>
+                                    </td>
+                                    <td>
+                                        <span>1</span>
+                                    </td>
+                                    <td>
+                                        <img class="basura-rosada-carrito" src="basurerorosa.png"
+                                            alt="basurero rosado" />
+                                    </td>
+                                </tr>
+                            </table>
+                            <button>Ver Carrito</button>
+                        </div>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section>
+        <div id="encabezado-pedidop">
+            <h1>Pedidos Personalizados</h1>
+        </div>
+    </section>
+    <section class="pedido-perso">
+        <div id="banner3">
+            <div class="div-pedidos">
+                <div class="info-personal">
+                    <div class="formulario-pedidos">
+                        <div class="titulo-perso">
+                            <h4>Información de pedido</h4>
+                        </div>
+                        <label for="inputNombre" class="form-label">Nombre completo</label>
+                        <input type="text" id="nombre" class="form-control"
+                            aria-describedby="passwordHelpBlock"onkeyup="ValidarNombre()" placeholder="...">
+                        <div class="pos-error" >
+                            <p id="errornombre" class="texto-error">&nbsp;</p>
+                        </div>
+
+                        <label for="inputTelefono" class="form-label">Numero de telefono</label>
+                        <input type="number" id="celular" class="form-control"
+                            aria-describedby="passwordHelpBlock" onkeyup="ValidarCelular()" placeholder="...">
+                            <div class="pos-error" >
+                                <p id="errorcel" class="texto-error">&nbsp;</p>
+                            </div>
+
+                        <label for="inputCorreo" class="form-label">Correo electronico</label>
+                        <input type="text" id="correo" class="form-control"
+                            aria-describedby="passwordHelpBlock" onkeyup="ValidarCorreo()" placeholder="...">
+                            <div class="pos-error" >
+                                <p id="errorcorreo" class="texto-error">&nbsp;</p>
+                            </div>
+                    </div>
+                    <div class="formulario-pedidos6">
+                        <div class="espacio-form"></div>
+                        <form class="was-validated">
+                          <div class="mb-3">
+                            <label for="validationInput" class="form-label">Direccion de envio</label>
+                            <input type="text" class="form-control" id="validationInput" placeholder="Calle Generica #69" required pattern="^(?=.*[a-zA-Z])(?=.*[0-9]).{6,}$" disabled>
+                            <div class="invalid-feedback">
+                              Por favor ingrese una dirección como se muestra en el ejemplo.
+                            </div>
+                          </div>
+                          <div class="checkradios">
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="validationFormCheck2" name="radio-stacked" required>
+                                <label class="form-check-label" for="validationFormCheck2">Reparto a domicilio</label>
+                              </div>
+                              <div class="form-check">
+                                <input type="radio" class="form-check-input" id="validationFormCheck3" name="radio-stacked" required>
+                                <label class="form-check-label" for="validationFormCheck3">Retiro en tienda</label>
+                              </div>
+                          </div>
+
+                        </form>
+                        <div class="info-extra">
+                            <label for="exampleFormControlTextarea1" class="form-label">Informacion adicional</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Opcional"></textarea>
+                          </div>
+                      </div>
+                </div>
+                <div class="contenedor-info-torta">
+                    <div class="info-torta">
+                        <div class="formulario-pedidos2">
+                            <label for="combobox-base">Base de la torta</label>
+                            <select class="form-select form-select-sm" aria-label="Small select example">
+                                <option value="bizcocho">Bizcocho</option>
+                                <option value="hojaldre">Hojaldre</option>
+                                <option value="hojarasca">Hojarasca</option>
+                                <option value="mil hojas">Mil hojas</option>
+                                <option value="panqueque">Panqueque</option>
+                                <option value="cupcakes">Cupcakes</option>
+                            </select>
+                        </div>
+                        <div class="formulario-pedidos3">
+                            <label for="combobox-base">Relleno</label>
+                            <div class="contenedor-checkbox">
+                                <div class="form-check">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        Manjar
+                                    </label>
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+
+                                        Memelada frambuesa
+                                    </label>
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        Ganache chocolate
+                                    </label>
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        Crema pastelera
+                                    </label>
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        Sabor misterioso
+                                    </label>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="formulario-pedidos4">
+                            <label for="combobox-base">Cobertura de la torta</label>
+                            <select class="form-select form-select-sm" aria-label="Small select example">
+                                <option value="Glaseado_de_chocolate">Glaseado de chocolate</option>
+                                <option value="Fondant">Fondant</option>
+                                <option value="Crema_de_queso">Crema de queso</option>
+                                <option value="Merengue">Merengue</option>
+                            </select>
+                        </div>
+                        <div class="formulario-pedidos5">
+                            <label for="combobox-base">Cantidad de personas</label>
+                            <select class="form-select form-select-sm" aria-label="Small select example">
+                                <option value="15p">15</option>
+                                <option value="20p">20</option>
+                                <option value="30p">30</option>
+                                <option value="35p">35</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+    <section id="modal">
+
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Información sobre tu pedido</h5>
+                        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true"></span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Pedido Realizado!
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Entendido!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+            Enviar Pedido
+        </button>
+    </section>
+        <footer id="footer">
+            <div class="footer">
+                <div class="row">
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-whatsapp"></i></a>
+                    <a href="#"><i class="bi bi-messenger"></i></a>
+                </div>
+
+                <div class="row">
+                    <ul>
+                        <li><a href="#footer">Contacto</a></li>
+                        <li><a href="#">Servicios</a></li>
+                        <li><a href="#">Términos y condiciones</a></li>
+                        <li><a href="#">Nuestra Tienda</a></li>
+                    </ul>
+                </div>
+
+                <div class="row">
+                    SweetKirby Copyright © 2024 Misery - All rights reserved
+                </div>
+            </div>
+        </footer>
+
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+        <script src="funciones.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+              const habilitarCampo = document.getElementById('validationFormCheck2');
+              const deshabilitarCampo = document.getElementById('validationFormCheck3');
+              const campoInput = document.getElementById('validationInput');
+          
+              habilitarCampo.addEventListener('change', function() {
+                if (habilitarCampo.checked) {
+                  campoInput.disabled = false;
+                }
+              });
+          
+              deshabilitarCampo.addEventListener('change', function() {
+                if (deshabilitarCampo.checked) {
+                  campoInput.disabled = true;
+                }
+              });
+            });
+          </script>
+</body>
+
+
+</html>

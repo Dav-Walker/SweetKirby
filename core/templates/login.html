@@ -1,0 +1,13 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'core/estiloMain.css' %}">
+<link rel="stylesheet" href="{% static 'core/estilo.css' %}">
+{% block 'contenido' %}
+
+<h1>Login</h1>
+
+<form  action="" method="post" class="login">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit"> Login </button>
+</form>
+{% endblock %}

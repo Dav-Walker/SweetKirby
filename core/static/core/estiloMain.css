@@ -30,7 +30,7 @@
     justify-content: center;
 } */
 
-.row > a {
+.row>a {
     width: fit-content;
 }
 
@@ -56,7 +56,7 @@
     /* justify-content: space-evenly; */
 }
 
-#about > h1 {
+#about>h1 {
     margin: 2%;
     width: 96%;
     text-align: center;
@@ -77,7 +77,7 @@
     padding: 2vh;
 }
 
-#topsellers > h1{
+#topsellers>h1 {
     margin: 2%;
     width: 96%;
     text-align: center;
@@ -97,7 +97,7 @@
     align-items: center;
 }
 
-.centro > div {
+.centro>div {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -136,7 +136,7 @@
     box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
 }
 
-.boton > a {
+.boton>a {
     font-weight: bolder;
     text-decoration: none;
     margin: auto 0;
@@ -157,7 +157,7 @@
     box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
 }
 
-.boton2 > a {
+.boton2>a {
     font-weight: bolder;
     text-decoration: none;
     margin: auto 0;
@@ -184,13 +184,13 @@ p {
     animation: derecha 1s;
 }
 
-.carousel-item > img {
+.carousel-item>img {
     height: 60vh;
     width: auto;
     margin: 0 auto;
 }
 
-#banner > #title {
+#banner>#title {
     -webkit-text-stroke: 1px black;
     color: #ffffff;
     font-size: 3rem;
@@ -282,7 +282,7 @@ body {
     row-gap: 60%;
 }
 
-#reviews > h1 {
+#reviews>h1 {
     line-height: 15vh;
     font-size: 3.5rem;
     color: #825e21;
@@ -321,7 +321,7 @@ body {
     scroll-behavior: smooth;
 }
 
-#title > a {
+#title>a {
     text-decoration: none;
     color: black;
 }
@@ -381,7 +381,7 @@ body {
     font-weight: lighter;
 }
 
-#navbar-brand > a {
+#navbar-brand>a {
     align-items: center;
     vertical-align: middle;
     justify-content: end;
@@ -393,7 +393,7 @@ body {
     transition-duration: 0.2s;
 }
 
-#logotitle{
+#logotitle {
     margin-right: 20vw;
 }
 
@@ -407,7 +407,7 @@ body {
     margin: 0 auto;
 }
 
-div > h2 {
+div>h2 {
     font-family: "Concert One", sans-serif !important;
     font-size: large;
     color: grey;
@@ -486,7 +486,7 @@ div > h2 {
     background-color: #ffffff;
 }
 
-#section2 > .card-menu {
+#section2>.card-menu {
     margin-bottom: 3vh;
     border-radius: 17px;
     box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
@@ -506,7 +506,7 @@ div > h2 {
     gap: 1vh;
 }
 
-h5 > #filtro {
+h5>#filtro {
     display: flex;
     flex-wrap: wrap;
     text-align: right;
@@ -526,7 +526,7 @@ h5 > #filtro {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-.topsell-card{
+.topsell-card {
     height: 21.5rem;
     margin: 0 4vw;
 }
@@ -564,7 +564,7 @@ h5 > #filtro {
     text-align: center;
 }
 
-.horizontal-center > img {
+.horizontal-center>img {
     height: 20vh;
 }
 
@@ -589,7 +589,7 @@ h5 > #filtro {
 .add-cart {
     display: flex;
     margin: 0 auto;
-    margin-top:5px;
+    margin-top: 5px;
 }
 
 /* #section2 > .card > .add {
@@ -644,11 +644,11 @@ h5 > #filtro {
     width: 1.5rem;
 }
 
-#buy-card-wrapper{
+#buy-card-wrapper {
     margin-right: 1rem;
 }
 
-#buy-card-wrapper:hover{
+#buy-card-wrapper:hover {
     border-radius: 1vh;
     border: 2px solid #ff80c6;
     border-radius: 13px;
@@ -746,7 +746,7 @@ h5 > #filtro {
     align-items: center;
 }
 
-#titulo-carro > h1 {
+#titulo-carro>h1 {
     color: #383737;
 }
 
@@ -797,7 +797,7 @@ h5 > #filtro {
 }
 
 .buy-card-title,
-.table-buy-card > td {
+.table-buy-card>td {
     padding-right: 1.5rem;
 }
 
@@ -846,7 +846,7 @@ h5 > #filtro {
     text-align: center;
 }
 
-.info-carrito > p {
+.info-carrito>p {
     display: flex;
 }
 
@@ -999,7 +999,7 @@ h5 > #filtro {
     font-size: medium;
 }
 
-.carousel-item > img {
+.carousel-item>img {
     height: 60vh;
     width: auto;
     margin: 0 auto;
@@ -1041,7 +1041,7 @@ h5 > #filtro {
     text-align: center;
 }
 
-#encabezado-galeria > h1 {
+#encabezado-galeria>h1 {
     margin: 2%;
     width: 100%;
     text-align: center;
@@ -1067,7 +1067,7 @@ h5 > #filtro {
     justify-content: space-evenly;
 }
 
-#encabezado-pedidop > h1 {
+#encabezado-pedidop>h1 {
     margin: 2%;
     width: 100%;
     text-align: center;
@@ -1104,7 +1104,7 @@ h5 > #filtro {
     background-blend-mode: overlay;
 }
 
-.formulario-pedidos > label {
+.formulario-pedidos>label {
     color: #000000;
     font-size: medium;
     height: 1vh;
@@ -1158,12 +1158,12 @@ h5 > #filtro {
     gap: 1vh;
 }
 
-.formulario-pedidos4 > label {
+.formulario-pedidos4>label {
     text-align: center;
     font-size: 2vh;
 }
 
-label > .formulario-pedidos5 {
+label>.formulario-pedidos5 {
     font-size: 2vh;
     width: 15vh;
 }
@@ -1175,7 +1175,7 @@ label > .formulario-pedidos5 {
     gap: 1vh;
 }
 
-.formulario-pedidos5 > label {
+.formulario-pedidos5>label {
     text-align: center;
     font-size: 2vh;
 }
@@ -1201,7 +1201,7 @@ label > .formulario-pedidos5 {
     justify-content: flex-start;
 }
 
-.titulo-perso > h4 {
+.titulo-perso>h4 {
     font-weight: bolder;
     color: #979797;
 }
@@ -1287,7 +1287,7 @@ label > .formulario-pedidos5 {
     display: flex;
 }
 
-.reviews-image-wrapper > img {
+.reviews-image-wrapper>img {
     width: 20vh;
     height: 20vh;
     margin: 0 auto;
@@ -1374,11 +1374,13 @@ label > .formulario-pedidos5 {
         display: flex;
         flex-direction: row;
     }
+
     .reviews-image-wrapper {
         display: inline-block;
         margin: auto 0;
     }
-    .reviews-image-wrapper > img {
+
+    .reviews-image-wrapper>img {
         width: 170px;
         height: 110px;
     }
@@ -1396,7 +1398,7 @@ label > .formulario-pedidos5 {
         flex-direction: unset;
     }
 
-    .topsell-card{
+    .topsell-card {
         display: inline-block;
         height: 43vh;
     }
@@ -1407,7 +1409,7 @@ label > .formulario-pedidos5 {
         flex-direction: column;
     }
 
-    .mapa{
+    .mapa {
         margin: 0 auto;
     }
 
@@ -1415,11 +1417,11 @@ label > .formulario-pedidos5 {
         width: 58vh;
     }
 
-    #about_content{
+    #about_content {
         width: 80%;
     }
 
-    #encabezado-pedidop > h1 {
+    #encabezado-pedidop>h1 {
         height: 210px;
         margin-top: 3.5vh;
     }
@@ -1496,7 +1498,7 @@ label > .formulario-pedidos5 {
 }
 
 @media (min-width: 760px) and (max-width: 995px) {
-    .topsell-card{
+    .topsell-card {
         display: inline-block;
         height: 43vh;
     }
@@ -1505,7 +1507,7 @@ label > .formulario-pedidos5 {
         width: 100%;
     }
 
-    #navbar-brand > a {
+    #navbar-brand>a {
         margin-right: 0px;
     }
 
@@ -1522,13 +1524,14 @@ label > .formulario-pedidos5 {
         flex-basis: 77%;
     }
 
-    #navbar-brand > a {
+    #navbar-brand>a {
         padding: 4px;
     }
 
-    #navbar-brand > a {
+    #navbar-brand>a {
         padding: 8px;
     }
+
     .paula {
         height: 24vh;
     }
@@ -1592,7 +1595,7 @@ label > .formulario-pedidos5 {
         height: 32vh;
     }
 
-    #encabezado-pedidop > h1 {
+    #encabezado-pedidop>h1 {
         width: 100%;
         text-align: center;
         height: 178px;
@@ -1645,9 +1648,10 @@ label > .formulario-pedidos5 {
 }
 
 @media (min-width: 1255px) and (max-width: 1400px) {
-    #logotitle{
+    #logotitle {
         margin-right: 40%;
     }
+
     #topsell-content {
         height: 50%;
         display: flex;
@@ -1681,24 +1685,28 @@ label > .formulario-pedidos5 {
         height: 74px;
         margin-bottom: 1vh;
     }
+
     .reviews-wrapper {
         display: flex;
         flex-direction: column;
     }
+
     .reviews-image-wrapper {
         display: inline-block;
         margin: 0 auto;
     }
-    .reviews-image-wrapper > img {
+
+    .reviews-image-wrapper>img {
         width: 100px;
         height: 100px;
     }
 }
 
-@media(min-width: 1401px){
-    #logotitle{
+@media(min-width: 1401px) {
+    #logotitle {
         margin-right: 40vw;
     }
+
     #topsell-content {
         height: 50%;
         display: flex;
@@ -1709,13 +1717,42 @@ label > .formulario-pedidos5 {
         margin: 0 auto;
         align-items: center;
     }
-    .topsell-card{
+
+    .topsell-card {
         margin: 0 0.5vw;
     }
 }
 
-/* RESPONSIVIDAD INDEX */
+/* LOGIN */
+.login {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2vh;
+    align-items: center;
+    margin: 5vh 0px;
+}
 
-/*CARRUSEL*/
+.login>div {
+    width: 60%;
+    display: flex;
+}
 
-/* RESPONSIVIDAD NAVBAR*/
+div>label,
+div>input {
+    width: 50% !important;
+    display: block;
+}
+
+
+div>input {
+    height: 2rem;
+    padding: 0px;
+    border: 1px white solid;
+    border-radius: 10px;
+    outline: none;
+}
+
+.login > button {
+    width: 60%;
+}

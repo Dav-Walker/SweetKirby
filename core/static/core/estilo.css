@@ -602,7 +602,7 @@ h5>#filtro {
     height: 6vh;
 }
 
-#boton-index{
+#boton-index {
     width: 40.7vh;
 }
 
@@ -659,11 +659,11 @@ h5>#filtro {
     position: relative;
 }
 
- .navbar-item:hover .buy-card {
+.navbar-item:hover .buy-card {
     display: block;
     opacity: 1;
     pointer-events: auto;
-} 
+}
 
 .nav-card {
     list-style: none;
@@ -1534,6 +1534,7 @@ label>.formulario-pedidos5 {
         margin-top: 4vh;
     }
 }
+
 @media (max-width: 630px) {
     #encabezado-pedidop>h1 {
         margin-top: 2vh;
@@ -1551,10 +1552,12 @@ label>.formulario-pedidos5 {
     .formulario-pedidos input {
         width: 58vh !important;
     }
+
     .pos-error {
         width: 58vh;
     }
 }
+
 /* RESPONSIVIDAD INDEX */
 
 @media(max-width: 1350px) {
@@ -1697,22 +1700,58 @@ label>.formulario-pedidos5 {
 
 @media(max-width:1012px) {
     #navbar-brand {
-    
+
         flex-basis: 78%;
     }
-    }
+}
 
-    @media(max-width:960px) {
+@media(max-width:960px) {
     #navbar-brand {
         flex-basis: 77%;
     }
+
     #navbar-brand>a {
         padding: 4px;
     }
-    }
+}
 
-    @media(max-width:920px) {
-        #navbar-brand>a {
-            padding: 8px;
-        }
+@media(max-width:920px) {
+    #navbar-brand>a {
+        padding: 8px;
     }
+}
+
+
+/* LOGIN */
+.form-Login {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2vh;
+    align-items: center;
+    margin: 5vh 0px;
+}
+
+.form-Login>div {
+    width: 60%;
+    display: flex;
+}
+
+div>label,
+div>input {
+    width: 50% !important;
+    display: block;
+}
+
+
+div>input {
+    height: 2rem;
+    padding: 0px;
+    border: 1px white solid;
+    border-radius: 10px;
+    outline: none;
+}
+
+.form-Login > button {
+    width: 60%;
+}

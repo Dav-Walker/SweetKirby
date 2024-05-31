@@ -1,10 +1,12 @@
 from django.shortcuts import render
 from .models import *
+from django.contrib.auth.views import logout_then_login
+
 def home(request):
     return render(request, 'index.html')
 
-def login(request):
-    return render(request, 'login.html')
+def logout(request):
+    return logout_then_login(request, login_url="login")
 
 def carrito(request):
     return render(request, 'carrito.html')

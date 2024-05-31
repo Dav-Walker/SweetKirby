@@ -14,60 +14,13 @@
 </head>
 
 <body>
-    <header>
-        <div id="navbar">
-            <div id="logotitle">
-                <h1 id="title"><a href="index.html">SweetKirby</a></h1>
-                <img src="kirby1mini.png" alt="logo.png" id="logo">
-            </div>
-            <nav id="navbar-brand">
-                <a href="index.html#about" class="navbar-item">Nuestra Tienda</a>
-                <a href="menu.html" target="_self" class="navbar-item">Productos</a>
-                <a href="pedidos.html" target="_self" class="navbar-item">Pedidos Personalizados</a>
-                <a href="galeria.html" target="_self" class="navbar-item">Galeria</a>
-                <a href="#footer" class="navbar-item">Contactos</a>
-                <div class="cart-container">
-                    <a href="carrito.html" class="navbar-item" type="button">
-                        <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" alt="carrito" width="30px" />
-                        <div class="buy-card">
-                            <table class="table-buy-card">
-                                <tr>
-                                    <th></th>
-                                    <th class="buy-card-title">Producto</th>
-                                    <th class="buy-card-title">Precio</th>
-                                    <th class="buy-card-title">Cantidad</th>
-                                    <th></th>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <img src="https://i.pinimg.com/736x/f5/2c/f6/f52cf6d2475616df2dcd3d37cba0c3e0.jpg" class="imagen-compra2" alt="torta" />
-                                    </td>
-                                    <td>
-                                        <span>Torta Oreo</span>
-                                    </td>
-                                    <td>
-                                        <span>$28.000</span>
-                                    </td>
-                                    <td>
-                                        <span>1</span>
-                                    </td>
-                                    <td>
-                                        <img class="basura-rosada-carrito" src="basurerorosa.png" alt="basurero rosado" />
-                                    </td>
-                                </tr>
-                            </table>
-                            <button>Ver Carrito</button>
-                        </div>
-                    </a>
-                </div>
-            </nav>
-        </div>
-    </header>
+    {% include 'header.html' %}
+
     <section>
         <div id="banner2">
             <div class="menu-carrito">
                 <div id=titulo-carro>
-                    <img src="carritorosa.png" alt="carrito rosado">
+                    <img src="{% static 'core/carritorosa.png' %}" alt="carrito rosado">
                     <h1>Carrito de compras</h1>
                 </div>
                 <div class="producto-carrito">
@@ -81,7 +34,7 @@
                     <i>x</i>
                     <h3>$35.000</h3>
                     <p>Cantidad de Personas: 15</p>
-                    <img class="basura-rosada" src="basurerorosa.png" alt="basurero rosado">
+                    <img class="basura-rosada" src="{% static 'core/basurerorosa.png' %}" alt="basurero rosado">
                 </div>
             </div>
             <div class="resumen-carrito">
@@ -119,7 +72,7 @@
     
             <div class="row">
                 <ul>
-                    <li><a href="#footer">Contacto</a></li> 
+                    <li><a href="/#footer">Contacto</a></li> 
                     <li><a href="#">Servicios</a></li>
                     <li><a href="#">Términos y condiciones</a></li>
                     <li><a href="#">Nuestra Tienda</a></li>

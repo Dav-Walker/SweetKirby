@@ -9,14 +9,20 @@
                     <img src="{% static 'core/kirby1mini.png' %}" alt="logo.png" id="logo">
                 </div>
             </div>
-            <a href="index.html#about" class="navbar-item">Nuestra Tienda</a>
-            <a href="menu.html" target="_self" class="navbar-item">Productos</a>
-            <a href="pedidos.html" target="_self" class="navbar-item">Pedidos Personalizados</a>
-            <a href="galeria.html" target="_self" class="navbar-item">Galeria</a>
-            <a href="#footer" class="navbar-item">Contactos</a>
+            <a href="/#about" class="navbar-item">Nuestra Tienda</a>
+            <a href="/menu" target="_self" class="navbar-item">Productos</a>
+            <a href="/pedidos" target="_self" class="navbar-item">Pedidos Personalizados</a>
+            <a href="/galeria" target="_self" class="navbar-item">Galeria</a>
+            <a href="/#footer" class="navbar-item">Contactos</a>
             <div id="buy-card-wrapper">
-                <a href="carrito.html" class="navbar-item cart-container" type="button">
+                <a href="/carrito" class="navbar-item cart-container" type="button" id="toggleButton">
                     <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" alt="carrito" width="30px" />
+                    <style>
+                        .buy-card {
+                            display: none;
+                        }
+                        
+                    </style>
                     <div class="buy-card">
                         <table class="table-buy-card">
                             <tr>
@@ -41,7 +47,7 @@
                                     <span>1</span>
                                 </td>
                                 <td>
-                                    <img class="basura-rosada-carrito" src="basurerorosa.png"
+                                    <img class="basura-rosada-carrito" src="{% static 'core/basurerorosa.png' %}"
                                         alt="basurero rosado" />
                                 </td>
                             </tr>
@@ -53,3 +59,14 @@
         </nav>
     </div>
 </header>
+
+<script>
+    document.getElementById('toggleButton').addEventListener('click', function() {
+        var buyCard = document.querySelector('.buy-card');
+        if (buyCard.style.display === 'none' || buyCard.style.display === '') {
+            buyCard.style.display = 'block';
+        } else {
+            buyCard.style.display = 'none';
+        }
+    });
+</script>

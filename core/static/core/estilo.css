@@ -659,11 +659,11 @@ h5>#filtro {
     position: relative;
 }
 
-.navbar-item:hover .buy-card {
+ .navbar-item:hover .buy-card {
     display: block;
     opacity: 1;
     pointer-events: auto;
-}
+} 
 
 .nav-card {
     list-style: none;

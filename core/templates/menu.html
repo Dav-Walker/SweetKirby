@@ -36,15 +36,16 @@
         </div>
         <section id="menu">
             <section id="section2">
+                {% for torta in tortas %}
                 <div class="card card-menu">
                     <div class="card-body">
                         <div class="horizontal-center">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKtiZ3rTKbwa874CniRercV7lBs0-Zy3WtvWCyo1M3fQ&sg"
+                            <img src="{{torta.imagen}}"
                                 class="imagen-menu img-menu" alt="torta">
                         </div>
                         <div class="descripcion-container">
                             <div class="descripcion horizontal-center">
-                                Torta Red Velvet
+                                {{torta.nombre}}
                             </div>
                             <div class="precio">
                                 <div class="porciones">
@@ -56,7 +57,7 @@
                                         <option value="">35</option>
                                     </select>
                                 </div>
-                                <p>$35.000</p>
+                                <p>{{torta.precio}}</p>
                             </div>
                         </div>
                     </div>
@@ -64,314 +65,8 @@
                         <button id=add-cart>Añadir al carro</button>
                     </div>
                 </div>
-                <div class="card card-menu">
-                    <div class="card-body">
-                        <div class="horizontal-center">
-                            <img src="https://i.pinimg.com/736x/f5/2c/f6/f52cf6d2475616df2dcd3d37cba0c3e0.jpg"
-                                class="imagen-menu img-menu" alt="torta">
-                        </div>
-                        <div class="descripcion-container">
-                            <div class="descripcion horizontal-center">
-                                Torta Oreo
-                            </div>
-                            <div class="precio">
-                                <div class="porciones">
-                                    <label for="porciones">Porciones:</label>
-                                    <select name="porciones" id="porciones">
-                                        <option value="">15</option>
-                                        <option value="">20</option>
-                                        <option value="">30</option>
-                                        <option value="">35</option>
-                                    </select>
-                                </div>
-                                <p>$35.000</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="add">
-                        <button id=add-cart>Añadir al carro</button>
-                    </div>
-                </div>
-                <div class="card card-menu">
-                    <div class="card-body">
-                        <div class="horizontal-center">
-                            <img src="https://www.pasteleriaelparron.cl/wp-content/uploads/2019/03/Kopia-Torta_bizcocho_nuez-scaled-e1613010055374.jpg"
-                                class="imagen-menu img-menu" alt="torta">
-                        </div>
-                        <div class="descripcion-container">
-                            <div class="descripcion horizontal-center">
-                                Torta Bizcocho Manjar Nuez
-                            </div>
-                            <div class="precio">
-                                <div class="porciones">
-                                    <label for="porciones">Porciones:</label>
-                                    <select name="porciones" id="porciones">
-                                        <option value="">15</option>
-                                        <option value="">20</option>
-                                        <option value="">30</option>
-                                        <option value="">35</option>
-                                    </select>
-                                </div>
-                                <p>$35.000</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="add">
-                        <button id=add-cart>Añadir al carro</button>
-                    </div>
-                </div>
-                <div class="card card-menu">
-                    <div class="card-body">
-                        <div class="horizontal-center">
-                            <img src="https://www.mozart.cl/wp-content/uploads/2018/04/9_MIF_1767_Torta_Pina_1080x1080.jpg"
-                                class="imagen-menu img-menu" alt="torta">
-                        </div>
-                        <div class="descripcion-container">
-                            <div class="descripcion horizontal-center">
-                                Torta Piña
-                            </div>
-                            <div class="precio">
-                                <div class="porciones">
-                                    <label for="porciones">Porciones:</label>
-                                    <select name="porciones" id="porciones">
-                                        <option value="">15</option>
-                                        <option value="">20</option>
-                                        <option value="">30</option>
-                                        <option value="">35</option>
-                                    </select>
-                                </div>
-                                <p>$35.000</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="add">
-                        <button id=add-cart>Añadir al carro</button>
-                    </div>
-                </div>
-                <div class="card card-menu">
-                    <div class="card-body">
-                        <div class="horizontal-center">
-                            <img src="https://dojiw2m9tvv09.cloudfront.net/11210/product/img_0445-min5941.jpg"
-                                class="imagen-menu img-menu" alt="torta">
-                        </div>
-                        <div class="descripcion-container">
-                            <div class="descripcion horizontal-center">
-                                Torta Panqueque Naranja
-                            </div>
-                            <div class="precio">
-                                <div class="porciones">
-                                    <label for="porciones">Porciones:</label>
-                                    <select name="porciones" id="porciones">
-                                        <option value="">15</option>
-                                        <option value="">20</option>
-                                        <option value="">30</option>
-                                        <option value="">35</option>
-                                    </select>
-                                </div>
-                                <p>$35.000</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="add">
-                        <button id=add-cart>Añadir al carro</button>
-                    </div>
-                </div>
-                <div class="card card-menu">
-                    <div class="card-body">
-                        <div class="horizontal-center">
-                            <img src="https://dojiw2m9tvv09.cloudfront.net/11210/product/img_3179a-min7555.png"
-                                class="imagen-menu img-menu" alt="torta">
-                        </div>
-                        <div class="descripcion-container">
-                            <div class="descripcion horizontal-center">
-                                Torta Amor
-                            </div>
-                            <div class="precio">
-                                <div class="porciones">
-                                    <label for="porciones">Porciones:</label>
-                                    <select name="porciones" id="porciones">
-                                        <option value="">15</option>
-                                        <option value="">20</option>
-                                        <option value="">30</option>
-                                        <option value="">35</option>
-                                    </select>
-                                </div>
-                                <p>$35.000</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="add">
-                        <button id=add-cart>Añadir al carro</button>
-                    </div>
-                </div>
-                <div class="card card-menu">
-                    <div class="card-body">
-                        <div class="horizontal-center">
-                            <img src="https://www.recetasnestle.cl/sites/default/files/srh_recipes/cea5c976006573f9c7f892f5fa3baec9.jpg"
-                                class="imagen-menu img-menu" alt="torta">
-                        </div>
-                        <div class="descripcion-container">
-                            <div class="descripcion horizontal-center">
-                                Torta Selva Negra
-                            </div>
-                            <div class="precio">
-                                <div class="porciones">
-                                    <label for="porciones">Porciones:</label>
-                                    <select name="porciones" id="porciones">
-                                        <option value="">15</option>
-                                        <option value="">20</option>
-                                        <option value="">30</option>
-                                        <option value="">35</option>
-                                    </select>
-                                </div>
-                                <p>$35.000</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="add">
-                        <button id=add-cart>Añadir al carro</button>
-                    </div>
-                </div>
-                <div class="card card-menu">
-                    <div class="card-body">
-                        <div class="horizontal-center">
-                            <img src="https://bonheurketopatisserie.com/cdn/shop/files/IMG_1885.jpg?v=1691374155"
-                                class="imagen-menu img-menu" alt="torta">
-                        </div>
-                        <div class="descripcion-container">
-                            <div class="descripcion horizontal-center">
-                                Torta Tres Leches Frambuesa
-                            </div>
-                            <div class="precio">
-                                <div class="porciones">
-                                    <label for="porciones">Porciones:</label>
-                                    <select name="porciones" id="porciones">
-                                        <option value="">15</option>
-                                        <option value="">20</option>
-                                        <option value="">30</option>
-                                        <option value="">35</option>
-                                    </select>
-                                </div>
-                                <p>$35.000</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="add">
-                        <button id=add-cart>Añadir al carro</button>
-                    </div>
-                </div>
-                <div class="card card-menu">
-                    <div class="card-body">
-                        <div class="horizontal-center">
-                            <img src="https://i.pinimg.com/736x/ed/bc/c0/edbcc0b413e92317e7961a8a5929560e.jpg"
-                                class="imagen-menu img-menu" alt="torta">
-                        </div>
-                        <div class="descripcion-container">
-                            <div class="descripcion horizontal-center">
-                                Torta Trufa Chocolate
-                            </div>
-                            <div class="precio">
-                                <div class="porciones">
-                                    <label for="porciones">Porciones:</label>
-                                    <select name="porciones" id="porciones">
-                                        <option value="">15</option>
-                                        <option value="">20</option>
-                                        <option value="">30</option>
-                                        <option value="">35</option>
-                                    </select>
-                                </div>
-                                <p>$35.000</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="add">
-                        <button id=add-cart>Añadir al carro</button>
-                    </div>
-                </div>
-                <div class="card card-menu">
-                    <div class="card-body">
-                        <div class="horizontal-center">
-                            <img src="https://media.istockphoto.com/id/478348860/es/foto/pastel-de-chocolate-con-chocolate-dulce-de-az%C3%BAcar-y-mantequilla-drizzled-y-curls-escarchado-de.jpg?s=612x612&w=0&k=20&c=7l38xUcyxyTPsN1dKJ3jDeoTobb7Tvk3iJT4LuRcods="
-                                class="imagen-menu img-menu" alt="torta">
-                        </div>
-                        <div class="descripcion-container">
-                            <div class="descripcion horizontal-center">
-                                Torta Explosión de Chocolate
-                            </div>
-                            <div class="precio">
-                                <div class="porciones">
-                                    <label for="porciones">Porciones:</label>
-                                    <select name="porciones" id="porciones">
-                                        <option value="">15</option>
-                                        <option value="">20</option>
-                                        <option value="">30</option>
-                                        <option value="">35</option>
-                                    </select>
-                                </div>
-                                <p>$35.000</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="add">
-                        <button id=add-cart>Añadir al carro</button>
-                    </div>
-                </div>
-                <div class="card card-menu">
-                    <div class="card-body">
-                        <div class="horizontal-center">
-                            <img src="https://www.pngitem.com/pimgs/m/208-2084486_torta-ambrosa-pasteles-nicolukas-hd-png-download.png"
-                                class="imagen-menu img-menu" alt="torta">
-                        </div>
-                        <div class="descripcion-container">
-                            <div class="descripcion horizontal-center">
-                                Torta Cheesecake Bizcocho Frutilla
-                            </div>
-                            <div class="precio">
-                                <div class="porciones">
-                                    <label for="porciones">Porciones:</label>
-                                    <select name="porciones" id="porciones">
-                                        <option value="">15</option>
-                                        <option value="">20</option>
-                                        <option value="">30</option>
-                                        <option value="">35</option>
-                                    </select>
-                                </div>
-                                <p>$35.000</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="add">
-                        <button id=add-cart>Añadir al carro</button>
-                    </div>
-                </div>
-                <div class="card card-menu">
-                    <div class="card-body">
-                        <div class="horizontal-center">
-                            <img src="https://p4.wallpaperbetter.com/wallpaper/163/398/483/cake-sweets-food-berries-fruit-hd-wallpaper-preview.jpg"
-                                class="imagen-menu img-menu" alt="torta">
-                        </div>
-                        <div class="descripcion-container">
-                            <div class="descripcion horizontal-center">
-                                Torta Chocolate Frutos Rojos
-                            </div>
-                            <div class="precio">
-                                <div class="porciones">
-                                    <label for="porciones">Porciones:</label>
-                                    <select name="porciones" id="porciones">
-                                        <option value="">15</option>
-                                        <option value="">20</option>
-                                        <option value="">30</option>
-                                        <option value="">35</option>
-                                    </select>
-                                </div>
-                                <p>$35.000</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="add">
-                        <button id=add-cart>Añadir al carro</button>
-                    </div>
-                </div>
+                {% endfor %}
+
                 <div id="paginacion">
                     <ul class="pagination">
                         <li class="page-item disabled">
@@ -397,6 +92,7 @@
                         </li>
                     </ul>
                 </div>
+
             </section>
         </section>
     </div>

@@ -16,6 +16,37 @@
 <body>
     {% include 'header.html' %}
 
+    <h1>Carrito de Compras</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Imagen</th>
+                <th>Cantidad</th>
+                <th>Total</th>
+                <th>Categoria</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in carrito %}
+                <tr>
+                    <td>{{ item.codigo }}</td>
+                    <td>{{ item.nombre }}</td>
+                    <td>{{ item.precio }}</td>
+                    <td>{{ item.imagen }}</td>
+                    <td>{{ item.cantidad }}</td>
+                    <td>{{ item.total }}</td> 
+                    <td>{{ item.categoria }}</td>
+                    <td><a href="#">Eliminar</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
     <section>
         <div id="banner2">
             <div class="menu-carrito">

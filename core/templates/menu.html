@@ -36,6 +36,7 @@
         </div>
         <section id="menu">
             <section id="section2">
+
                 {% for torta in tortas %}
                 <div class="card card-menu">
                     <div class="card-body">
@@ -62,10 +63,12 @@
                         </div>
                     </div>
                     <div class="add">
-                        <button id=add-cart>Añadir al carro</button>
+                        <a href="{% url 'addToCart' torta.codigo %}">Agregar al carro</a>
                     </div>
                 </div>
                 {% endfor %}
+
+
 
                 <div id="paginacion">
                     <ul class="pagination">

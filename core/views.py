@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import *
 from django.contrib.auth.views import logout_then_login
 from .models import *
+from django.urls import reverse
 
 def home(request):
     return render(request, 'index.html',)
@@ -24,6 +25,21 @@ def menu(request):
 
 def pedidos(request):
     return render(request, 'pedidos.html')
+
+def delToCart(request, codigo):
+    carrito = request.session.get("carrito", [])
+    for p in carrito:
+        if p["codigo"] == codigo:
+            if p["cantidad"] > 1:
+                p["cantidad"] -=1
+                p["total"] = p["precio"] * p["cantidad"]
+            else:
+                carrito.remove(p)
+            break
+    request.session["carrito"] = carrito
+    #return redirect(to="carrito")
+    return redirect(reverse('carrito')+ '#contenido') #contenido siendo donde estan los items del carrito
+
 
 def addToCart(request, codigo):
     carrito = request.session.get("carrito", [])

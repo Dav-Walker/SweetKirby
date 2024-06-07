@@ -1083,6 +1083,32 @@ h5>#filtro {
     }
 }
 
+table{
+    border-collapse: collapse;
+    margin: 6vh 0vh;
+}
+
+/* BOTONES DE CARRO */
+.addCart{
+    width: 100%;
+    padding: 7px;
+    background-color: pink;
+    color: #ffffff;
+    text-decoration: none;
+    text-align: center;
+    box-sizing: border-box;
+
+}
+
+.addCart hover{
+    background-color: #262626;
+    color: #ffffff;
+
+}
+/* BOTONES DE CARRO */
+
+td > img{height: 80px}
+
 /* -----------------------------------------------------------------------------------GALERIA--------------------------------------------------------------------------- */
 #foto-galeria {
     display: grid;
@@ -1403,6 +1429,8 @@ label>.formulario-pedidos5 {
 .espacio-form {
     height: 2vh;
 }
+
+
 
 
 /* -------------------------------------------------- RESPONSIVIDAD ------------------------------------------*/

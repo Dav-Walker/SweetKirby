@@ -17,6 +17,7 @@
     {% include 'header.html' %}
 
     <h1>Carrito de Compras</h1>
+    {% if carrito|length > 0 %}
     <table>
         <thead>
             <tr>
@@ -36,15 +37,19 @@
                     <td>{{ item.codigo }}</td>
                     <td>{{ item.nombre }}</td>
                     <td>{{ item.precio }}</td>
-                    <td>{{ item.imagen }}</td>
+                    <td><img src="{{ item.imagen }}" alt="{{ item.nombre }}" ></td>
                     <td>{{ item.cantidad }}</td>
                     <td>{{ item.total }}</td> 
                     <td>{{ item.categoria }}</td>
-                    <td><a href="#">Eliminar</a></td>
+                    <td><a href="{% url 'delToCart' item.codigo %}" Class="addCart">Eliminar</a></td>
                 </tr>
             {% endfor %}
         </tbody>
     </table>
+    {% else %}
+    <h2>Tu carrito esta vacio!</h2>
+    {% endif %}
+
 
 
     <section>

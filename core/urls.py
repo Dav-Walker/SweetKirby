@@ -13,5 +13,6 @@ urlpatterns = [
     path('login/', LoginView.as_view(template_name="login.html"), name="login"),
     path('logout', logout, name="logout"),
     path('addToCart/<codigo>', addToCart, name="addToCart"),
+    path('delToCart/<codigo>',delToCart,name="delToCart"),
     path('borrar', borrarSesion, name="borrar")
 ]

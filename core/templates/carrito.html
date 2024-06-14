@@ -18,7 +18,8 @@
 
     <h1>Carrito de Compras</h1>
     {% if carrito|length > 0 %}
-    <table>
+    <div id="tabla">
+        <table>
         <thead>
             <tr>
                 <th>id</th>
@@ -49,6 +50,8 @@
     {% else %}
     <h2>Tu carrito esta vacio!</h2>
     {% endif %}
+    </div>
+    
 
 
 

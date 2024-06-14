@@ -1432,7 +1432,65 @@ label>.formulario-pedidos5 {
     height: 2vh;
 }
 
+/* ----------------------------LOGIN-------------------------------------------*/
+.Login {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2vh;
+    align-items: center;
+    margin: 20vh 0px;
 
+}
+#h1login>h1{
+    margin: 2%;
+    width: 100%;
+    text-align: center;
+    height: 40px;
+    line-height: 5vh;
+    font-size: 3.5rem;
+    color: #825E21;
+    font-family: "Concert One", sans-serif !important;
+    font-weight: 400;
+    margin-bottom: 19px;    
+}   
+
+
+.Login>div {
+    width: 60%;
+    display: flex;
+}
+
+div>label,
+div>input {
+    width: 50% !important;
+    display: block;
+}
+
+
+div>input {
+    height: 2rem;
+    padding: 0px;
+    border: 1px white solid;
+    border-radius: 10px;
+    outline: none;
+}
+
+.Login > button {
+    width: 15vh;
+  padding: 2vh;
+}
+table, th, td {
+    border: 1px solid;
+    
+  }
+td{
+    padding: 5px;
+}
+#tabla{
+    display: flex;
+    justify-content: center;
+}
 
 
 /* -------------------------------------------------- RESPONSIVIDAD ------------------------------------------*/
@@ -1752,51 +1810,3 @@ label>.formulario-pedidos5 {
 }
 
 
-/* LOGIN */
-.Login {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    row-gap: 2vh;
-    align-items: center;
-    margin: 20vh 0px;
-
-}
-#h1login>h1{
-    margin: 2%;
-    width: 100%;
-    text-align: center;
-    height: 40px;
-    line-height: 5vh;
-    font-size: 3.5rem;
-    color: #825E21;
-    font-family: "Concert One", sans-serif !important;
-    font-weight: 400;
-    margin-bottom: 19px;    
-}   
-
-
-.Login>div {
-    width: 60%;
-    display: flex;
-}
-
-div>label,
-div>input {
-    width: 50% !important;
-    display: block;
-}
-
-
-div>input {
-    height: 2rem;
-    padding: 0px;
-    border: 1px white solid;
-    border-radius: 10px;
-    outline: none;
-}
-
-.Login > button {
-    width: 15vh;
-  padding: 2vh;
-}

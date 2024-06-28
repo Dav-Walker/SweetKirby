@@ -37,6 +37,7 @@ def delToCart(request, codigo):
                 carrito.remove(p)
             break
     request.session["carrito"] = carrito
+    request.session['items']= sum(item['cantidad'] for item in carrito)
     #return redirect(to="carrito")
     return redirect(reverse('carrito')+ '#contenido') #contenido siendo donde estan los items del carrito
 
@@ -58,7 +59,7 @@ def addToCart(request, codigo):
                     "cantidad": 1,
                     "total": producto.precio})
     request.session["carrito"] = carrito
-    print(carrito)
+    request.session['items']= sum(item['cantidad'] for item in carrito)
     return redirect(to="menu")
 
 def borrarSesion(request):

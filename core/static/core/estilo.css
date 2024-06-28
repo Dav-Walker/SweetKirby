@@ -323,7 +323,7 @@ body {
 }
 
 
-/* -----------------------------------------------------------------------------------GLOBAL--------------------------------------------------------------------------- */
+/* -------------------------------------------------GLOBAL--------------------------------------------------------------- */
 
 body {
     background-color: beige;
@@ -410,7 +410,7 @@ body {
     margin-left: 10%;
 }
 
-/* -----------------------------------------------------------------------------------MENÚ--------------------------------------------------------------------------- */
+/* --------------------------------------------------------MENÚ--------------------------------------------------------- */
 
 #menu {
     display: flex;
@@ -720,7 +720,7 @@ h5>#filtro {
 }
 
 #banner2 {
-    height: 88vh;
+    height: auto;
     display: flex;
     background-color: beige;
     justify-content: space-evenly;
@@ -733,7 +733,7 @@ h5>#filtro {
     display: flex;
     flex-wrap: wrap;
     border: 0.3vh solid hsl(0, 0%, 89%);
-    height: 40vh;
+    height: auto;
     width: 98vh;
     background-color: #e8dcff;
     border-radius: 2vh;
@@ -791,7 +791,11 @@ h5>#filtro {
     height: auto;
     margin-right: -2rem;
 }
-
+.product-image {
+    height: 10vh; /* Ajusta la altura a 20% del viewport height */
+    width: 10vh; /* Mantiene la proporción del ancho */
+    object-fit: cover; /* Opción: ajusta la imagen para cubrir el contenedor */
+}
 .table-buy-card {
     padding-top: 2%;
     border: none;
@@ -1490,6 +1494,7 @@ td{
 #tabla{
     display: flex;
     justify-content: center;
+    height: auto;
 }
 
 

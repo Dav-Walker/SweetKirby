@@ -14,5 +14,6 @@ urlpatterns = [
     path('logout', logout, name="logout"),
     path('addToCart/<codigo>', addToCart, name="addToCart"),
     path('delToCart/<codigo>',delToCart,name="delToCart"),
+    path('aplicar_descuento/', aplicarDescuento, name='aplicar_descuento'),
     path('borrar', borrarSesion, name="borrar")
 ]

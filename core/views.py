@@ -31,16 +31,23 @@ def pedidos(request):
 def delToCart(request, codigo):
     carrito = request.session.get("carrito", [])
     producto = None
+    es_lunes = datetime.now().weekday() == 0  # 0 es lunes
+    codigo_descuento = request.session.get("codigo_descuento", None)
+    descuento = es_lunes or (codigo_descuento is not None)
+
     for p in carrito:
         if p["codigo"] == codigo:
             producto = p
             if p["cantidad"] > 1:
                 p["cantidad"] -= 1
                 p["total"] = p["precio"] * p["cantidad"]
+                if descuento:
+                    p["total"] *= 0.9  # Aplicar 10% de descuento
+                p["total"] = round(p["total"])  # Redondear el total sin decimales
             else:
                 carrito.remove(p)
             break
-    
+
     # Actualizar el total del carrito en la sesión
     request.session["carrito"] = carrito
     request.session['items'] = sum(item['cantidad'] for item in carrito)
@@ -58,7 +65,7 @@ def addToCart(request, codigo, codigo_descuento=None):
     producto = Producto.objects.get(codigo=codigo)
     
     # Verificar si es lunes o si se ingresó un código de descuento
-    es_lunes = datetime.now().weekday() == 0  # 0 es lunes
+    es_lunes = datetime.now().weekday() == 0 # 0 es lunes
     descuento = es_lunes or (codigo_descuento is not None)
 
     for p in carrito:
@@ -91,32 +98,40 @@ def addToCart(request, codigo, codigo_descuento=None):
     total_carrito = sum(item['total'] for item in carrito)
     request.session['total_carrito'] = total_carrito
     
+    # Guardar el código de descuento en la sesión si se proporcionó
+    if codigo_descuento:
+        request.session['codigo_descuento'] = codigo_descuento
+    
     # Redirigir a la vista del carrito
     return redirect(to="menu")
+
 
 def borrarSesion(request):
     request.session.flush()
     return redirect('home')
+
 
 def carrito(request):
     carrito = request.session.get("carrito", [])
     total_carrito = request.session.get("total_carrito", 0)  # Obtener total_carrito de la sesión
     return render(request, 'carrito.html', {"carrito": carrito, "total_carrito": total_carrito})
 
+
 def aplicarDescuento(request):
     if request.method == 'POST':
         codigo_promocional = request.POST.get('codigo_promocional')
         
         # Verificar si el código promocional es válido y aplicar descuento si corresponde
-        if codigo_promocional == 'KingDedede':  # Colocar el codigo para realizar la validación
+        if codigo_promocional == 'KingDedede':  # Reemplaza 'KingDedede' por tu lógica de validación
             carrito = request.session.get("carrito", [])
             for item in carrito:
                 item['total'] *= 0.9  # Aplicar descuento del 10%
-                item['total'] = round(item['total'])  # Redondear el total 
+                item['total'] = round(item['total'])  # Redondear el total sin decimales
             
             # Actualizar el total del carrito en la sesión
             total_carrito = sum(item['total'] for item in carrito)
             request.session['carrito'] = carrito
             request.session['total_carrito'] = total_carrito
+            request.session['codigo_descuento'] = codigo_promocional
         
     return redirect(reverse('carrito'))

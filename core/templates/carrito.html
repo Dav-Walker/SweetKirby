@@ -71,16 +71,19 @@
                     <h2>1 Producto</h2>
                 </div>
                 <div class="contenido-resumen2">
-                    <div class="input-group clase-input-boton">
-                        <input type="text" class="input-promo form-control" placeholder="Código promocional"
-                            aria-label="Recipient's username" aria-describedby="button-addon2">
-                        <button class="btn btn-primary" type="button" id="button-addon2">Aplicar</button>
-                    </div>
+                    <form action="{% url 'aplicar_descuento' %}" method="post">
+                        {% csrf_token %}
+                        <div class="input-group clase-input-boton">
+                            <input type="text" class="input-promo form-control" name="codigo_promocional" placeholder="Código promocional"
+                                aria-label="Recipient's username" aria-describedby="button-addon2">
+                            <button class="btn btn-primary" type="submit" id="button-addon2">Aplicar</button>
+                        </div>
+                    </form>
                 </div>
                 <div class="contenido-resumen3">
                     <div class="precio-total">
                         <h2>Total:</h2>
-                        <h1>$35.000</h1>
+                        <h1>${{ total_carrito }}</h1>
                     </div>
                     <div class="boton-pago">
                         <button type="button" class="btn btn-primary">Pagar</button>

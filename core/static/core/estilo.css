@@ -894,16 +894,16 @@ h5>#filtro {
 
 /* -------------------------------------------------------------------------------RESUMEN PEDIDO----------------------------------------------------------------------- */
 .resumen-carrito {
-    margin-top: 20vh;
+    margin-top: 3vh;
     display: flex;
     flex-wrap: wrap;
     border: 0.3vh solid hsl(0, 0%, 89%);
-    height: 40vh;
-    width: 70vh;
+    height: 45vh;
+    width: 63vh;
     background-color: #e8dcff;
     border-radius: 2vh;
-}
-
+    align-content: center;
+    justify-content: center; }
 
 
 .contenido-resumen {
@@ -915,7 +915,7 @@ h5>#filtro {
     border-bottom: 0.3vh solid hsl(0, 0%, 89%);
     flex-direction: column;
     justify-content: center;
-    ;
+    
 }
 
 .contenido-resumen h1 {

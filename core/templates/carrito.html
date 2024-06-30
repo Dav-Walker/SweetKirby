@@ -153,7 +153,6 @@
         crossorigin="anonymous"></script>
 
     <script>
-        // JavaScript en tu template
         document.getElementById('promo-form').addEventListener('submit', function (event) {
             event.preventDefault();
             var formData = new FormData(this);
@@ -168,15 +167,12 @@
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
-                        // Código aplicado correctamente
                         document.getElementById('promo-mensaje').innerText = data.mensaje;
                         document.getElementById('promo-mensaje').classList.remove('text-danger');
                         document.getElementById('promo-mensaje').classList.add('text-success');
 
-                        // Actualizar el total del carrito
                         document.getElementById('total-carrito').innerText = '$' + data.total_carrito;
                     } else {
-                        // Código no válido
                         if (data.mensaje === 'Código no válido') {
                             document.getElementById('promo-mensaje').innerText = 'Código promocional inválido';
                         } else {
@@ -189,7 +185,6 @@
                 })
                 .catch(error => {
                     console.error('Error al aplicar el descuento:', error);
-                    // Manejo de errores si es necesario
                 });
         });
 

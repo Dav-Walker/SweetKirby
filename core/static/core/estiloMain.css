@@ -581,8 +581,8 @@ h5>#filtro {
     align-items: center;
     width: 17vh;
 }
-.porciones p{
-    margin-left: -2vh;
+.precio p{
+    margin-left: -4vh;
 }
 
 .descripcion-container{
@@ -1780,4 +1780,29 @@ div>input {
 #about_content {
     width: 58vh;
 }
+}
+
+.boton-index {
+    display: flex;
+    flex-direction: row;
+    width: 31.75vh;
+    justify-content: center;
+    height: 6vh;
+}
+
+.addCart{
+    width: 100%;
+    padding: 7px;
+    background-color: pink;
+    color: #ffffff;
+    text-decoration: none;
+    text-align: center;
+    box-sizing: border-box;
+
+}
+
+.addCart hover{
+    background-color: #262626;
+    color: #ffffff;
+
 }

@@ -10,7 +10,17 @@ from .forms import RegistroForm
 
 
 def home(request):
-    return render(request, 'index.html',)
+    topseller1 = Producto.objects.all()[1]
+    topseller2 = Producto.objects.all()[4]
+    topseller3 = Producto.objects.all()[3]
+    topseller4 = Producto.objects.all()[5]
+    grupo_topsellers = {
+        'topseller1':topseller1,
+        'topseller2':topseller2,
+        'topseller3':topseller3,
+        'topseller4':topseller4,
+    }
+    return render(request, 'index.html',grupo_topsellers )
 
 def logout(request):
     return logout_then_login(request, login_url="login")

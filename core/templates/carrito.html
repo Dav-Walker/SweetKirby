@@ -16,8 +16,10 @@
 <body>
     {% include 'header.html' %}
 
-    <h1>Carrito de Compras</h1>
-    
+
+    <div id="encabezado-galeria">
+        <h1>Carrito de Compras</h1>
+    </div>
     
  
 
@@ -64,33 +66,37 @@
     <h2>Tu carrito esta vacio!</h2>
     {% endif %}
     </div>
+    </div>
+    {% if carrito|length > 0 %}
+    <div class="resumen-carrito">
+        <div class="contenido-resumen">
+            <h1>Resumen de tu pedido</h1>
+            <h2>1 Producto</h2>
+        </div>
+        <div class="contenido-resumen2">
+            <form action="{% url 'aplicar_descuento' %}" method="post">
+                {% csrf_token %}
+                <div class="input-group clase-input-boton">
+                    <input type="text" class="input-promo form-control" name="codigo_promocional"
+                        placeholder="Código promocional" aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <button class="btn btn-primary" type="submit" id="button-addon2">Aplicar</button>
+                </div>
+            </form>
+        </div>
+        <div class="contenido-resumen3">
+            <div class="precio-total">
+                <h2>Total:</h2>
+                <h1>${{ total_carrito }}</h1>
             </div>
-            <div class="resumen-carrito">
-                <div class="contenido-resumen">
-                    <h1>Resumen de tu pedido</h1>
-                    <h2>1 Producto</h2>
-                </div>
-                <div class="contenido-resumen2">
-                    <form action="{% url 'aplicar_descuento' %}" method="post">
-                        {% csrf_token %}
-                        <div class="input-group clase-input-boton">
-                            <input type="text" class="input-promo form-control" name="codigo_promocional" placeholder="Código promocional"
-                                aria-label="Recipient's username" aria-describedby="button-addon2">
-                            <button class="btn btn-primary" type="submit" id="button-addon2">Aplicar</button>
-                        </div>
-                    </form>
-                </div>
-                <div class="contenido-resumen3">
-                    <div class="precio-total">
-                        <h2>Total:</h2>
-                        <h1>${{ total_carrito }}</h1>
-                    </div>
-                    <div class="boton-pago">
-                        <button type="button" class="btn btn-primary">Pagar</button>
-                    </div>
-                </div>
+            <div class="boton-pago">
+                <button type="button" class="btn btn-primary">Pagar</button>
             </div>
         </div>
+    </div>
+    {% else %}
+    <h2></h2>
+    {% endif %}
+    </div>
     </section>
     <footer id="footer">
         <div class="footer">

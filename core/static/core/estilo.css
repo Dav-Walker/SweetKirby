@@ -13,7 +13,7 @@
         transform: translateX(0px);
         opacity: 1;
     }
-}
+}   
 
 @keyframes bajar {
     0% {
@@ -343,6 +343,9 @@ body {
 #title>a {
     text-decoration: none;
     color: black;
+    border: 2px solid transparent;
+    border-radius: 13px;
+    transition-duration: 0.2s;
 }
 
 #navbar {
@@ -359,6 +362,12 @@ body {
 .navbar-item {
     color: #383737;
     text-decoration: none;
+    position: relative;
+}
+
+#logo {
+    height: 10vh;
+    margin-left: 10%;
 }
 
 #logotitle {
@@ -371,6 +380,7 @@ body {
 #sublogotitle{
     display: flex;
 }
+
 #title {
     font-family: "Licorice" !important;
     font-weight: 400;
@@ -405,10 +415,6 @@ body {
     transition-duration: 0.2s;
 }
 
-#logo {
-    height: 10vh;
-    margin-left: 10%;
-}
 
 /* --------------------------------------------------------MENÚ--------------------------------------------------------- */
 
@@ -657,9 +663,6 @@ h5>#filtro {
     pointer-events: none;
 }
 
-.navbar-item {
-    position: relative;
-}
 
 .navbar-item:hover .buy-card {
     display: block;

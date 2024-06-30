@@ -327,7 +327,7 @@ body {
 }
 
 #navbar {
-    display: inline-block;
+    display: flex;
     align-items: center;
     height: 11vh;
     animation: bajar 1s;

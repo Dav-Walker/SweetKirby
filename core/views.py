@@ -1,10 +1,8 @@
 from django.shortcuts import render, redirect
 from .models import *
 from django.contrib.auth.views import logout_then_login
-from .models import *
 from django.urls import reverse
 from datetime import datetime
-from django.shortcuts import redirect
 
 def home(request):
     return render(request, 'index.html',)

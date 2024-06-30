@@ -476,6 +476,7 @@ div>h2 {
     align-items: center;
     justify-content: center;
     column-gap: 3vh;
+    margin-top: 1vh;
 }
 
 .card {
@@ -574,9 +575,20 @@ h5>#filtro {
 
 .porciones {
     font-size: small;
+    display: flex;
     color: #825e21;
     text-align: left;
+    align-items: center;
+    width: 17vh;
 }
+.porciones p{
+    margin-left: -2vh;
+}
+
+.descripcion-container{
+    margin-bottom: 2vh;
+}
+
 
 /* .add {
     display: flex;
@@ -1755,4 +1767,17 @@ div>input {
 
 .login > button {
     width: 60%;
+}
+
+@media (min-width: 492px) and (max-width: 599px) {
+.centro{
+    display: flex;
+    height: calc(70vh - 20%);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#about_content {
+    width: 58vh;
+}
 }

@@ -598,8 +598,14 @@ h5>#filtro {
 
 .porciones {
     font-size: small;
-    color: #825E21;
+    display: flex;
+    color: #825e21;
     text-align: left;
+    align-items: center;
+    width: 17vh;
+}
+.porciones p{
+    margin-left: -2vh;
 }
 
 .add {

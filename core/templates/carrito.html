@@ -85,7 +85,10 @@
                     </div>
                     <div class="boton-pago">
                         {% if user.is_authenticated %}
-                        <button type="button" class="btn btn-primary" id="btn-pagar">Pagar</button>
+                        <button type="button" class="btn btn-primary" id="btn-pagar" data-bs-toggle="modal"
+                            data-bs-target="#modalPagoExitoso">
+                            Pagar
+                        </button>
                         {% else %}
                         <a href="{% url 'login' %}" class="btn btn-primary">Iniciar Sesión para Pagar</a>
                         {% endif %}
@@ -97,8 +100,11 @@
             {% endif %}
     </section>
 
+
+
+
     <div class="modal fade" id="modalPagoExitoso" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Pago Exitoso</h5>
@@ -113,6 +119,7 @@
             </div>
         </div>
     </div>
+
 
     <footer id="footer">
         <div class="footer">
@@ -146,6 +153,7 @@
         crossorigin="anonymous"></script>
 
     <script>
+        // JavaScript en tu template
         document.getElementById('promo-form').addEventListener('submit', function (event) {
             event.preventDefault();
             var formData = new FormData(this);
@@ -169,7 +177,11 @@
                         document.getElementById('total-carrito').innerText = '$' + data.total_carrito;
                     } else {
                         // Código no válido
-                        document.getElementById('promo-mensaje').innerText = data.mensaje;
+                        if (data.mensaje === 'Código no válido') {
+                            document.getElementById('promo-mensaje').innerText = 'Código promocional inválido';
+                        } else {
+                            document.getElementById('promo-mensaje').innerText = data.mensaje;
+                        }
                         document.getElementById('promo-mensaje').classList.add('text-danger');
                         document.getElementById('promo-mensaje').classList.remove('text-success');
                     }
@@ -180,4 +192,5 @@
                     // Manejo de errores si es necesario
                 });
         });
+
     </script>

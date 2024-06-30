@@ -22,60 +22,14 @@
                 <button type="submit">Logout</button>
             </form>
             {% else %}
-            <a href="{% url 'login' %}" class="navbar-item">Iniciar Sesión/Registrarse</a>
+            <a href="{% url 'login' %}">Login</a>
             {% endif %}
             <div id="buy-card-wrapper">
                 <a href="/carrito" class="navbar-item cart-container" type="button" id="toggleButton">
                     <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" alt="carrito" width="30px" />
-                    <style>
-                        .buy-card {
-                            display: none;
-                        }
-                    </style>
-                    <div class="buy-card">
-                        <table class="table-buy-card">
-                            <tr>
-                                <th></th>
-                                <th class="buy-card-title">Producto</th>
-                                <th class="buy-card-title">Precio</th>
-                                <th class="buy-card-title">Cantidad</th>
-                                <th></th>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img src="https://i.pinimg.com/736x/f5/2c/f6/f52cf6d2475616df2dcd3d37cba0c3e0.jpg"
-                                        class="imagen-compra2" alt="torta" />
-                                </td>
-                                <td>
-                                    <span>Torta Oreo</span>
-                                </td>
-                                <td>
-                                    <span>$28.000</span>
-                                </td>
-                                <td>
-                                    <span>1</span>
-                                </td>
-                                <td>
-                                    <img class="basura-rosada-carrito" src="{% static 'core/basurerorosa.png' %}"
-                                        alt="basurero rosado" />
-                                </td>
-                            </tr>
-                        </table>
-                        <button>Ver Carrito</button>
-                    </div>
-                </a>
+                                    </a>
             </div>
         </nav>
     </div>
 </header>
 
-<script>
-    document.getElementById('toggleButton').addEventListener('click', function () {
-        var buyCard = document.querySelector('.buy-card');
-        if (buyCard.style.display === 'none' || buyCard.style.display === '') {
-            buyCard.style.display = 'block';
-        } else {
-            buyCard.style.display = 'none';
-        }
-    });
-</script>

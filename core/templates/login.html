@@ -1,15 +1,15 @@
 {% load static %}
 
 <link rel="stylesheet" href="{% static 'core/estilo.css' %}">
-{% block 'contenido' %}
+{% block contenido %}
 <div id="h1login">
     <h1>Login</h1>
 </div>
 
-
-<form  action="" method="post" class="login">
+<form action="" method="post" class="login">
     {% csrf_token %}
     {{ form }}
-    <button type="submit"> Login </button>
+    <p>¿No tienes una cuenta? <a href="{% url 'registro' %}">Crea una cuenta aquí</a>.</p>
+    <button type="submit">Login</button>
 </form>
 {% endblock %}

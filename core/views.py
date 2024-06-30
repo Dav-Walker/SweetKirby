@@ -42,25 +42,23 @@ def delToCart(request, codigo):
                 p["cantidad"] -= 1
                 p["total"] = p["precio"] * p["cantidad"]
                 if descuento:
-                    p["total"] *= 0.9  # Aplicar 10% de descuento
-                p["total"] = round(p["total"])  # Redondear el total sin decimales
+                    p["total"] *= 0.9  
+                p["total"] = round(p["total"])  
             else:
                 carrito.remove(p)
             break
 
-    if not carrito:  # Verificar si el carrito está vacío
+    if not carrito:  
         if 'codigo_descuento_aplicado' in request.session:
-            del request.session['codigo_descuento_aplicado']  # Eliminar indicador de descuento aplicado
+            del request.session['codigo_descuento_aplicado']  
 
-    # Actualizar el total del carrito en la sesión
+    
     request.session["carrito"] = carrito
     request.session['items'] = sum(item['cantidad'] for item in carrito)
     
-    # Recalcular el total del carrito después de eliminar el producto
     total_carrito = sum(item['total'] for item in carrito)
     request.session['total_carrito'] = total_carrito
     
-    # Redirigir a la vista del carrito
     return redirect(reverse('carrito') + '#contenido')
 
 

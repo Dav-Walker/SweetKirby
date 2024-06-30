@@ -3,6 +3,8 @@ from .models import *
 from django.contrib.auth.views import logout_then_login
 from django.urls import reverse
 from datetime import datetime
+from django.http import JsonResponse
+from django.contrib.auth.decorators import login_required
 
 def home(request):
     return render(request, 'index.html',)
@@ -133,3 +135,14 @@ def aplicarDescuento(request):
             request.session['codigo_descuento'] = codigo_promocional
         
     return redirect(reverse('carrito'))
+
+
+@login_required
+def realizar_pago(request):
+    if request.method == 'POST':
+        # Lógica para procesar el pago
+        # ...
+        
+        return JsonResponse({'success': True})
+    return JsonResponse({'success': False})
+

@@ -16,88 +16,103 @@
 <body>
     {% include 'header.html' %}
 
-
     <div id="encabezado-galeria">
         <h1>Carrito de Compras</h1>
     </div>
-    
- 
-
 
     <section>
         <div id="banner2">
             <div class="menu-carrito">
-                <div id=titulo-carro>
+                <div id="titulo-carro">
                     <img src="{% static 'core/carritorosa.png' %}" alt="carrito rosado">
                     <h1>Carrito de compras</h1>
                 </div>
-    {% if carrito|length > 0 %}
-    <div id="tabla"> 
-        <table>
-        <thead>
-            <tr>
-                <th>imagen</th>
-                <th>Nombre</th>
-                <th>Precio</th>
-                <th>Cantidad</th>
-                <th>Total</th>
-                <th>Categoria</th>
-                <th>Eliminar</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for item in carrito %}
-                <tr>
-                    <td><img class="product-image" src="{{ item.imagen }}" alt="{{ item.nombre }}"></td>
-                    <td>{{ item.nombre }}</td>
-                    <td>{{ item.precio }}</td>
-                    <td>{{ item.cantidad }}</td>
-                    <td>{{ item.total }}</td> 
-                    <td>{{ item.categoria }}</td>
-                    <td><a href="{% url 'delToCart' item.codigo %}" Class="addCart">Eliminar</a></td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-
-    <p>Total de ítems: {{ request.session.items }}</p>
-
-    {% else %}
-    <h2>Tu carrito esta vacio!</h2>
-    {% endif %}
-    </div>
-    </div>
-    {% if carrito|length > 0 %}
-    <div class="resumen-carrito">
-        <div class="contenido-resumen">
-            <h1>Resumen de tu pedido</h1>
-            <h2>1 Producto</h2>
+                {% if carrito|length > 0 %}
+                <div id="tabla"> 
+                    <table>
+                    <thead>
+                        <tr>
+                            <th>Imagen</th>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
+                            <th>Total</th>
+                            <th>Categoria</th>
+                            <th>Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in carrito %}
+                            <tr>
+                                <td><img class="product-image" src="{{ item.imagen }}" alt="{{ item.nombre }}"></td>
+                                <td>{{ item.nombre }}</td>
+                                <td>{{ item.precio }}</td>
+                                <td>{{ item.cantidad }}</td>
+                                <td>{{ item.total }}</td> 
+                                <td>{{ item.categoria }}</td>
+                                <td><a href="{% url 'delToCart' item.codigo %}" class="addCart">Eliminar</a></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <p>Total de ítems: {{ request.session.items }}</p>
+                {% else %}
+                <h2>Tu carrito está vacío!</h2>
+                {% endif %}
+            </div>
         </div>
-        <div class="contenido-resumen2">
-            <form action="{% url 'aplicar_descuento' %}" method="post">
-                {% csrf_token %}
-                <div class="input-group clase-input-boton">
-                    <input type="text" class="input-promo form-control" name="codigo_promocional"
-                        placeholder="Código promocional" aria-label="Recipient's username" aria-describedby="button-addon2">
-                    <button class="btn btn-primary" type="submit" id="button-addon2">Aplicar</button>
+        {% if carrito|length > 0 %}
+        <div class="resumen-carrito">
+            <div class="contenido-resumen">
+                <h1>Resumen de tu pedido</h1>
+                <h2>1 Producto</h2>
+            </div>
+            <div class="contenido-resumen2">
+                <form action="{% url 'aplicar_descuento' %}" method="post">
+                    {% csrf_token %}
+                    <div class="input-group clase-input-boton">
+                        <input type="text" class="input-promo form-control" name="codigo_promocional"
+                            placeholder="Código promocional" aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <button class="btn btn-primary" type="submit" id="button-addon2">Aplicar</button>
+                    </div>
+                </form>
+            </div>
+            <div class="contenido-resumen3">
+                <div class="precio-total">
+                    <h2>Total:</h2>
+                    <h1>${{ total_carrito }}</h1>
                 </div>
-            </form>
-        </div>
-        <div class="contenido-resumen3">
-            <div class="precio-total">
-                <h2>Total:</h2>
-                <h1>${{ total_carrito }}</h1>
-            </div>
-            <div class="boton-pago">
-                <button type="button" class="btn btn-primary">Pagar</button>
+                <div class="boton-pago">
+                    {% if user.is_authenticated %}
+                        <button type="button" class="btn btn-primary" id="btn-pagar">Pagar</button>
+                    {% else %}
+                        <a href="{% url 'login' %}" class="btn btn-primary">Iniciar Sesión para Pagar</a>
+                    {% endif %}
+                </div>
             </div>
         </div>
-    </div>
-    {% else %}
-    <h2></h2>
-    {% endif %}
-    </div>
+        {% else %}
+        <h2></h2>
+        {% endif %}
     </section>
+
+    <div class="modal fade" id="modalPagoExitoso" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Pago Exitoso</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ¡Tu pago se ha realizado con éxito!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer id="footer">
         <div class="footer">
             <div class="row">
@@ -106,7 +121,7 @@
                 <a href="#"><i class="bi bi-whatsapp"></i></a>
                 <a href="#"><i class="bi bi-messenger"></i></a>
             </div>
-    
+
             <div class="row">
                 <ul>
                     <li><a href="/#footer">Contacto</a></li> 
@@ -115,18 +130,15 @@
                     <li><a href="#">Nuestra Tienda</a></li>
                 </ul>
             </div>
-    
+
             <div class="row">
                 SweetKirby Copyright © 2024 Misery - All rights reserved
             </div>
         </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
-</body>
 
-</html>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5+5hb7O6l5D5dJ6J6lM/savry5p5h5L5Rh8H5F1L" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        document

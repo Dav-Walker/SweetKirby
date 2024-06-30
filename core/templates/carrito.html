@@ -85,7 +85,10 @@
                     </div>
                     <div class="boton-pago">
                         {% if user.is_authenticated %}
-                        <button type="button" class="btn btn-primary" id="btn-pagar">Pagar</button>
+                        <button type="button" class="btn btn-primary" id="btn-pagar" data-bs-toggle="modal"
+                            data-bs-target="#modalPagoExitoso">
+                            Pagar
+                        </button>
                         {% else %}
                         <a href="{% url 'login' %}" class="btn btn-primary">Iniciar Sesión para Pagar</a>
                         {% endif %}
@@ -97,8 +100,11 @@
             {% endif %}
     </section>
 
+
+
+
     <div class="modal fade" id="modalPagoExitoso" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Pago Exitoso</h5>
@@ -113,6 +119,7 @@
             </div>
         </div>
     </div>
+
 
     <footer id="footer">
         <div class="footer">
@@ -145,18 +152,19 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 
-        <script>
-            document.getElementById('promo-form').addEventListener('submit', function (event) {
-                event.preventDefault();
-                var formData = new FormData(this);
-        
-                fetch("{% url 'aplicar_descuento' %}", {
-                    method: 'POST',
-                    headers: {
-                        'X-CSRFToken': '{{ csrf_token }}'
-                    },
-                    body: formData
-                })
+    <script>
+        // JavaScript en tu template
+        document.getElementById('promo-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            var formData = new FormData(this);
+
+            fetch("{% url 'aplicar_descuento' %}", {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                body: formData
+            })
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
@@ -164,13 +172,13 @@
                         document.getElementById('promo-mensaje').innerText = data.mensaje;
                         document.getElementById('promo-mensaje').classList.remove('text-danger');
                         document.getElementById('promo-mensaje').classList.add('text-success');
-        
+
                         // Actualizar el total del carrito
                         document.getElementById('total-carrito').innerText = '$' + data.total_carrito;
                     } else {
                         // Código no válido
                         if (data.mensaje === 'Código no válido') {
-                            document.getElementById('promo-mensaje').innerText = 'Proporcione un código promocional';
+                            document.getElementById('promo-mensaje').innerText = 'Código promocional inválido';
                         } else {
                             document.getElementById('promo-mensaje').innerText = data.mensaje;
                         }
@@ -183,6 +191,6 @@
                     console.error('Error al aplicar el descuento:', error);
                     // Manejo de errores si es necesario
                 });
-            });
-        </script>
-        
+        });
+
+    </script>

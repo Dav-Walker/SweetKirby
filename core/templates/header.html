@@ -22,7 +22,7 @@
                 <button type="submit">Logout</button>
             </form>
             {% else %}
-            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'login' %}" class="navbar-item">Iniciar Sesión/Registrarse</a>
             {% endif %}
             <div id="buy-card-wrapper">
                 <a href="/carrito" class="navbar-item cart-container" type="button" id="toggleButton">

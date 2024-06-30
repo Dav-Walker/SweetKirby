@@ -60,12 +60,12 @@
                 </div>
                 <div class="card-body">
                     <div class="horizontal-center">
-                        <img src="https://media.istockphoto.com/id/478348860/es/foto/pastel-de-chocolate-con-chocolate-dulce-de-az%C3%BAcar-y-mantequilla-drizzled-y-curls-escarchado-de.jpg?s=612x612&w=0&k=20&c=7l38xUcyxyTPsN1dKJ3jDeoTobb7Tvk3iJT4LuRcods="
+                        <img src="{{topseller1.imagen}}"
                             class="imagen-menu img-menu" alt="torta">
                     </div>
                     <div class="descripcion-container">
                         <div class="descripcion horizontal-center">
-                            Torta Explosión de Chocolate
+                            {{topseller1.nombre}}
                         </div>
                         <div class="precio">
                             <div class="porciones">
@@ -77,14 +77,14 @@
                                     <option value="">35</option>
                                 </select>
                             </div>
-                            <p>$35.000</p>
+                            <p>{{topseller1.precio}}</p>
                         </div>
                     </div>
                     <div class="boton-index">
-                        <button class="add-cart">Añadir al carro</button>
+                        <a href="{% url 'addToCart' topseller1.codigo %}" Class="addCart">Agregar al carro</a>
                     </div>
                 </div>
-            </div>
+                    </div>
             <div class="card topsell-card">
                 <div class="valoracion">
                     <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
@@ -93,12 +93,12 @@
                 </div>
                 <div class="card-body">
                     <div class="horizontal-center">
-                        <img src="https://p4.wallpaperbetter.com/wallpaper/163/398/483/cake-sweets-food-berries-fruit-hd-wallpaper-preview.jpg"
+                        <img src="{{topseller2.imagen}}"
                             class="imagen-menu img-menu" alt="torta">
                     </div>
                     <div class="descripcion-container">
                         <div class="descripcion horizontal-center">
-                            Torta Chocolate Frutos Rojos
+                            {{topseller2.nombre}}
                         </div>
                         <div class="precio">
                             <div class="porciones">
@@ -110,48 +110,14 @@
                                     <option value="">35</option>
                                 </select>
                             </div>
-                            <p>$35.000</p>
+                            <p>{{topseller2.precio}}</p>
                         </div>
                     </div>
                     <div class="boton-index">
-                        <button class="add-cart">Añadir al carro</button>
+                        <a href="{% url 'addToCart' topseller2.codigo %}" Class="addCart">Agregar al carro</a>
                     </div>
                 </div>
-            </div>
-            <div class="card topsell-card">
-                <div class="valoracion">
-                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
-                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
-                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
-                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
-                </div>
-                <div class="card-body">
-                    <div class="horizontal-center">
-                        <img src="https://i.pinimg.com/736x/ed/bc/c0/edbcc0b413e92317e7961a8a5929560e.jpg"
-                            class="imagen-menu img-menu" alt="torta">
                     </div>
-                    <div class="descripcion-container">
-                        <div class="descripcion horizontal-center">
-                            Torta Trufa Chocolate
-                        </div>
-                        <div class="precio">
-                            <div class="porciones">
-                                <label>Porciones:</label>
-                                <select name="porciones">
-                                    <option value="">15</option>
-                                    <option value="">20</option>
-                                    <option value="">30</option>
-                                    <option value="">35</option>
-                                </select>
-                            </div>
-                            <p>$35.000</p>
-                        </div>
-                    </div>
-                    <div class="boton-index">
-                        <button class="add-cart">Añadir al carro</button>
-                    </div>
-                </div>
-            </div>
             <div class="card topsell-card">
                 <div class="valoracion">
                     <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
@@ -161,12 +127,12 @@
                 </div>
                 <div class="card-body">
                     <div class="horizontal-center">
-                        <img src="https://bonheurketopatisserie.com/cdn/shop/files/IMG_1885.jpg?v=1691374155"
+                        <img src="{{topseller3.imagen}}"
                             class="imagen-menu img-menu" alt="torta">
                     </div>
                     <div class="descripcion-container">
                         <div class="descripcion horizontal-center">
-                            Torta Tres Leches Frambuesa
+                            {{topseller3.nombre}}
                         </div>
                         <div class="precio">
                             <div class="porciones">
@@ -178,14 +144,48 @@
                                     <option value="">35</option>
                                 </select>
                             </div>
-                            <p>$35.000</p>
+                            <p>{{topseller3.precio}}</p>
                         </div>
                     </div>
                     <div class="boton-index">
-                        <button class="add-cart">Añadir al carro</button>
+                        <a href="{% url 'addToCart' topseller3.codigo %}" Class="addCart">Agregar al carro</a>
                     </div>
                 </div>
-            </div>
+                    </div>
+            <div class="card topsell-card">
+                <div class="valoracion">
+                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
+                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
+                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
+                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
+                </div>
+                <div class="card-body">
+                    <div class="horizontal-center">
+                        <img src="{{topseller4.imagen}}"
+                            class="imagen-menu img-menu" alt="torta">
+                    </div>
+                    <div class="descripcion-container">
+                        <div class="descripcion horizontal-center">
+                            {{topseller4.nombre}}
+                        </div>
+                        <div class="precio">
+                            <div class="porciones">
+                                <label>Porciones:</label>
+                                <select name="porciones">
+                                    <option value="">15</option>
+                                    <option value="">20</option>
+                                    <option value="">30</option>
+                                    <option value="">35</option>
+                                </select>
+                            </div>
+                            <p>{{topseller4.precio}}</p>
+                        </div>
+                    </div>
+                    <div class="boton-index">
+                        <a href="{% url 'addToCart' topseller4.codigo %}" Class="addCart">Agregar al carro</a>
+                    </div>
+                </div>
+                    </div>
         </div>
         <div class="boton horizontal-center">
             <a href="{% static 'core/menu.html' %}" type="button">Todos los productos</a>

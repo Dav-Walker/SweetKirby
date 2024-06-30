@@ -14,5 +14,6 @@ urlpatterns = [
     path('delToCart/<codigo>/', delToCart, name="delToCart"),
     path('aplicar_descuento/', aplicarDescuento, name='aplicar_descuento'),
     path('realizar_pago/', realizar_pago, name='realizar_pago'),
+    path('registro/', registro, name="registro"), 
     path('borrar/', borrarSesion, name="borrar")
 ]

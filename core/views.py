@@ -5,6 +5,9 @@ from django.urls import reverse
 from datetime import datetime
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserCreationForm
+from .forms import RegistroForm
+
 
 def home(request):
     topseller1 = Producto.objects.all()[1]
@@ -156,8 +159,6 @@ def aplicarDescuento(request):
     return JsonResponse({'success': False, 'mensaje': 'Método no permitido'})
 
 
-
-
 @login_required
 def realizar_pago(request):
     if request.method == 'POST':
@@ -167,3 +168,14 @@ def realizar_pago(request):
         return JsonResponse({'success': True})
     return JsonResponse({'success': False})
 
+
+def registro(request):
+    if request.method == 'POST':
+        form = RegistroForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('login') 
+    else:
+        form = RegistroForm()
+    
+    return render(request, 'registro.html', {'form': form})

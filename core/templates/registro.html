@@ -1,0 +1,15 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'core/estilo.css' %}">
+{% block contenido %}
+
+    <div id="h1login">
+        <h1>Registro</h1>
+    </div>
+
+    <form action= "" method="post" class="registro">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <p>¿Ya tienes una cuenta? <a href="{% url 'login' %}">Inicia sesión aquí</a>.</p>
+        <button type="submit">Registrarse</button>
+    </form>
+{% endblock %}

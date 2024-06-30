@@ -5,7 +5,6 @@ from django.urls import reverse
 from datetime import datetime
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
-from django.views.decorators.csrf import csrf_exempt
 
 def home(request):
     return render(request, 'index.html',)
@@ -49,6 +48,10 @@ def delToCart(request, codigo):
                 carrito.remove(p)
             break
 
+    if not carrito:  # Verificar si el carrito está vacío
+        if 'codigo_descuento_aplicado' in request.session:
+            del request.session['codigo_descuento_aplicado']  # Eliminar indicador de descuento aplicado
+
     # Actualizar el total del carrito en la sesión
     request.session["carrito"] = carrito
     request.session['items'] = sum(item['cantidad'] for item in carrito)
@@ -59,6 +62,7 @@ def delToCart(request, codigo):
     
     # Redirigir a la vista del carrito
     return redirect(reverse('carrito') + '#contenido')
+
 
 
 def addToCart(request, codigo, codigo_descuento=None):
@@ -118,31 +122,37 @@ def carrito(request):
     return render(request, 'carrito.html', {"carrito": carrito, "total_carrito": total_carrito})
 
 
-
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
 @csrf_exempt
 def aplicarDescuento(request):
     if request.method == 'POST':
         codigo_promocional = request.POST.get('codigo_promocional')
         
-        # Verificar si el código promocional es válido y aplicar descuento si corresponde
-        if codigo_promocional == 'KingDedede':  # Reemplaza 'KingDedede' por tu lógica de validación
-            carrito = request.session.get("carrito", [])
-            for item in carrito:
-                item['total'] *= 0.9  # Aplicar descuento del 10%
-                item['total'] = round(item['total'])  # Redondear el total sin decimales
-            
-            # Actualizar el total del carrito en la sesión
-            total_carrito = sum(item['total'] for item in carrito)
-            request.session['carrito'] = carrito
-            request.session['total_carrito'] = total_carrito
-            request.session['codigo_descuento'] = codigo_promocional
-            
-            return JsonResponse({'success': True, 'mensaje': 'Código aplicado correctamente', 'total_carrito': total_carrito})
+        # Verificar si el código promocional es válido y no ha sido utilizado antes
+        if codigo_promocional == 'KingDedede':  # Reemplaza con tu lógica de validación
+            if 'codigo_descuento_aplicado' not in request.session:
+                carrito = request.session.get("carrito", [])
+                for item in carrito:
+                    item['total'] *= 0.9  # Aplicar descuento del 10%
+                    item['total'] = round(item['total'])  # Redondear el total sin decimales
+                
+                # Actualizar el total del carrito en la sesión
+                total_carrito = sum(item['total'] for item in carrito)
+                request.session['carrito'] = carrito
+                request.session['total_carrito'] = total_carrito
+                request.session['codigo_descuento'] = codigo_promocional
+                request.session['codigo_descuento_aplicado'] = True  # Marcar el descuento como aplicado
+                
+                return JsonResponse({'success': True, 'mensaje': 'Código aplicado correctamente', 'total_carrito': total_carrito})
+            else:
+                return JsonResponse({'success': False, 'mensaje': 'El código promocional ya ha sido utilizado'})
         else:
             return JsonResponse({'success': False, 'mensaje': 'Código no válido'})
 
     return JsonResponse({'success': False, 'mensaje': 'Método no permitido'})
+
 
 
 

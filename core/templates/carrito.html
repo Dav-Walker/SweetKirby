@@ -145,18 +145,18 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 
-    <script>
-        document.getElementById('promo-form').addEventListener('submit', function (event) {
-            event.preventDefault();
-            var formData = new FormData(this);
-
-            fetch("{% url 'aplicar_descuento' %}", {
-                method: 'POST',
-                headers: {
-                    'X-CSRFToken': '{{ csrf_token }}'
-                },
-                body: formData
-            })
+        <script>
+            document.getElementById('promo-form').addEventListener('submit', function (event) {
+                event.preventDefault();
+                var formData = new FormData(this);
+        
+                fetch("{% url 'aplicar_descuento' %}", {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRFToken': '{{ csrf_token }}'
+                    },
+                    body: formData
+                })
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
@@ -164,12 +164,16 @@
                         document.getElementById('promo-mensaje').innerText = data.mensaje;
                         document.getElementById('promo-mensaje').classList.remove('text-danger');
                         document.getElementById('promo-mensaje').classList.add('text-success');
-
+        
                         // Actualizar el total del carrito
                         document.getElementById('total-carrito').innerText = '$' + data.total_carrito;
                     } else {
                         // Código no válido
-                        document.getElementById('promo-mensaje').innerText = data.mensaje;
+                        if (data.mensaje === 'Código no válido') {
+                            document.getElementById('promo-mensaje').innerText = 'Proporcione un código promocional';
+                        } else {
+                            document.getElementById('promo-mensaje').innerText = data.mensaje;
+                        }
                         document.getElementById('promo-mensaje').classList.add('text-danger');
                         document.getElementById('promo-mensaje').classList.remove('text-success');
                     }
@@ -179,5 +183,6 @@
                     console.error('Error al aplicar el descuento:', error);
                     // Manejo de errores si es necesario
                 });
-        });
-    </script>
+            });
+        </script>
+        

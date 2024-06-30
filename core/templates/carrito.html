@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Carrito de Compras</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -28,72 +28,73 @@
                     <h1>Carrito de compras</h1>
                 </div>
                 {% if carrito|length > 0 %}
-                <div id="tabla"> 
+                <div id="tabla">
                     <table>
-                    <thead>
-                        <tr>
-                            <th>Imagen</th>
-                            <th>Nombre</th>
-                            <th>Precio</th>
-                            <th>Cantidad</th>
-                            <th>Total</th>
-                            <th>Categoria</th>
-                            <th>Eliminar</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for item in carrito %}
+                        <thead>
+                            <tr>
+                                <th>Imagen</th>
+                                <th>Nombre</th>
+                                <th>Precio</th>
+                                <th>Cantidad</th>
+                                <th>Total</th>
+                                <th>Categoria</th>
+                                <th>Eliminar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in carrito %}
                             <tr>
                                 <td><img class="product-image" src="{{ item.imagen }}" alt="{{ item.nombre }}"></td>
                                 <td>{{ item.nombre }}</td>
                                 <td>{{ item.precio }}</td>
                                 <td>{{ item.cantidad }}</td>
-                                <td>{{ item.total }}</td> 
+                                <td>{{ item.total }}</td>
                                 <td>{{ item.categoria }}</td>
                                 <td><a href="{% url 'delToCart' item.codigo %}" class="addCart">Eliminar</a></td>
                             </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-                <p>Total de ítems: {{ request.session.items }}</p>
-                {% else %}
-                <h2>Tu carrito está vacío!</h2>
-                {% endif %}
-            </div>
-        </div>
-        {% if carrito|length > 0 %}
-        <div class="resumen-carrito">
-            <div class="contenido-resumen">
-                <h1>Resumen de tu pedido</h1>
-                <h2>1 Producto</h2>
-            </div>
-            <div class="contenido-resumen2">
-                <form action="{% url 'aplicar_descuento' %}" method="post">
-                    {% csrf_token %}
-                    <div class="input-group clase-input-boton">
-                        <input type="text" class="input-promo form-control" name="codigo_promocional"
-                            placeholder="Código promocional" aria-label="Recipient's username" aria-describedby="button-addon2">
-                        <button class="btn btn-primary" type="submit" id="button-addon2">Aplicar</button>
-                    </div>
-                </form>
-            </div>
-            <div class="contenido-resumen3">
-                <div class="precio-total">
-                    <h2>Total:</h2>
-                    <h1>${{ total_carrito }}</h1>
-                </div>
-                <div class="boton-pago">
-                    {% if user.is_authenticated %}
-                        <button type="button" class="btn btn-primary" id="btn-pagar">Pagar</button>
+                            {% endfor %}
+                        </tbody>
+                    </table>
                     {% else %}
-                        <a href="{% url 'login' %}" class="btn btn-primary">Iniciar Sesión para Pagar</a>
+                    <h2>Tu carrito está vacío!</h2>
                     {% endif %}
                 </div>
             </div>
-        </div>
-        {% else %}
-        <h2></h2>
-        {% endif %}
+            {% if carrito|length > 0 %}
+            <div class="resumen-carrito">
+                <div class="contenido-resumen">
+                    <h1>Resumen de tu pedido</h1>
+                    <p>Total de ítems: {{ request.session.items }}</p>
+                </div>
+                <div class="contenido-resumen2">
+                    <form id="promo-form">
+                        {% csrf_token %}
+                        <div class="input-group clase-input-boton">
+                            <input type="text" class="input-promo form-control" name="codigo_promocional"
+                                placeholder="Código promocional" aria-label="Recipient's username"
+                                aria-describedby="button-addon2">
+                            <button class="btn btn-primary" type="submit" id="button-addon2">Aplicar</button>
+                        </div>
+                        <p id="promo-mensaje" class="text-danger" style="display: none;"></p>
+                    </form>
+                </div>
+                <div class="contenido-resumen3">
+                    <div class="precio-total">
+                        <h2>Total:</h2>
+                        <h1 id="total-carrito">${{ total_carrito }}</h1>
+                    </div>
+                    <div class="boton-pago">
+                        {% if user.is_authenticated %}
+                        <button type="button" class="btn btn-primary" id="btn-pagar">Pagar</button>
+                        {% else %}
+                        <a href="{% url 'login' %}" class="btn btn-primary">Iniciar Sesión para Pagar</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <h2></h2>
+            {% endif %}
     </section>
 
     <div class="modal fade" id="modalPagoExitoso" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -124,7 +125,7 @@
 
             <div class="row">
                 <ul>
-                    <li><a href="/#footer">Contacto</a></li> 
+                    <li><a href="/#footer">Contacto</a></li>
                     <li><a href="#">Servicios</a></li>
                     <li><a href="#">Términos y condiciones</a></li>
                     <li><a href="#">Nuestra Tienda</a></li>
@@ -137,8 +138,46 @@
         </div>
     </footer>
 
-    
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5+5hb7O6l5D5dJ6J6lM/savry5p5h5L5Rh8H5F1L" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5+5hb7O6l5D5dJ6J6lM/savry5p5h5L5Rh8H5F1L"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
     <script>
-        document
+        document.getElementById('promo-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            var formData = new FormData(this);
+
+            fetch("{% url 'aplicar_descuento' %}", {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Código aplicado correctamente
+                        document.getElementById('promo-mensaje').innerText = data.mensaje;
+                        document.getElementById('promo-mensaje').classList.remove('text-danger');
+                        document.getElementById('promo-mensaje').classList.add('text-success');
+
+                        // Actualizar el total del carrito
+                        document.getElementById('total-carrito').innerText = '$' + data.total_carrito;
+                    } else {
+                        // Código no válido
+                        document.getElementById('promo-mensaje').innerText = data.mensaje;
+                        document.getElementById('promo-mensaje').classList.add('text-danger');
+                        document.getElementById('promo-mensaje').classList.remove('text-success');
+                    }
+                    document.getElementById('promo-mensaje').style.display = 'block';
+                })
+                .catch(error => {
+                    console.error('Error al aplicar el descuento:', error);
+                    // Manejo de errores si es necesario
+                });
+        });
+    </script>

@@ -5,6 +5,7 @@ from django.urls import reverse
 from datetime import datetime
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
 
 def home(request):
     return render(request, 'index.html',)
@@ -117,6 +118,9 @@ def carrito(request):
     return render(request, 'carrito.html', {"carrito": carrito, "total_carrito": total_carrito})
 
 
+
+
+@csrf_exempt
 def aplicarDescuento(request):
     if request.method == 'POST':
         codigo_promocional = request.POST.get('codigo_promocional')
@@ -133,8 +137,13 @@ def aplicarDescuento(request):
             request.session['carrito'] = carrito
             request.session['total_carrito'] = total_carrito
             request.session['codigo_descuento'] = codigo_promocional
-        
-    return redirect(reverse('carrito'))
+            
+            return JsonResponse({'success': True, 'mensaje': 'Código aplicado correctamente', 'total_carrito': total_carrito})
+        else:
+            return JsonResponse({'success': False, 'mensaje': 'Código no válido'})
+
+    return JsonResponse({'success': False, 'mensaje': 'Método no permitido'})
+
 
 
 @login_required

@@ -528,8 +528,8 @@ h5>#filtro {
 }
 
 .topsell-card {
-    height: 21.5rem;
-    margin: 0 4vw;
+        width: 23%;
+        height: 21.5rem;
 }
 
 .topsell-card .card-body {
@@ -1333,7 +1333,7 @@ label>.formulario-pedidos5 {
 }
 
 /* -------------------------------------------------- RESPONSIVIDAD ------------------------------------------*/
-@media (min-width: 500px) and (max-width: 750px) {
+@media (min-width: 599px) and (max-width: 750px) {
     #navbar-brand {
         flex-direction: column;
         height: fit-content;
@@ -1399,7 +1399,7 @@ label>.formulario-pedidos5 {
 
     #topsell-content {
         height: 100%;
-        width: 20rem;
+        width: 100%;
         gap: 2vh;
         display: flex;
         justify-content: center;
@@ -1411,8 +1411,9 @@ label>.formulario-pedidos5 {
     }
 
     .topsell-card {
-        display: inline-block;
-        height: 43vh;
+        height: 21.5rem;
+        margin: 0 1.5vw;
+        width: 33%;
     }
 
     .centro {
@@ -1436,10 +1437,6 @@ label>.formulario-pedidos5 {
     #encabezado-pedidop>h1 {
         height: 210px;
         margin-top: 3.5vh;
-    }
-
-    .card {
-        width: 70%;
     }
 
     #section2 {
@@ -1510,11 +1507,6 @@ label>.formulario-pedidos5 {
 }
 
 @media (min-width: 760px) and (max-width: 995px) {
-    .topsell-card {
-        display: inline-block;
-        height: 43vh;
-    }
-
     #index {
         width: 100%;
     }
@@ -1675,6 +1667,11 @@ label>.formulario-pedidos5 {
         align-items: center;
     }
 
+    .topsell-card {
+        height: 21.5rem;
+        margin: 0px 2vw;
+        width: 31%;
+    }
     .boton {
         margin-top: 50vh;
     }
@@ -1735,6 +1732,26 @@ label>.formulario-pedidos5 {
     }
 }
 
+@media (min-width: 1035px) and (max-width: 1254px) {
+    .topsell-card {
+        height: 21.5rem;
+        margin: 0px 2vw;
+        width: 32%;
+    }
+}
+@media (min-width: 751px) and (max-width: 1034px) {
+    .topsell-card {
+        height: 21.5rem;
+        margin: 0 1.5vw;
+        width: 33%;
+    }
+}
+@media (min-width: 492px) and (max-width: 598px) {
+.topsell-card {
+    width: 50%;
+    height: 21.5rem;
+}
+}
 /* LOGIN */
 .login {
     width: 100%;
@@ -1785,7 +1802,7 @@ div>input {
 .boton-index {
     display: flex;
     flex-direction: row;
-    width: 31.75vh;
+    width: 100%;
     justify-content: center;
     height: 6vh;
 }

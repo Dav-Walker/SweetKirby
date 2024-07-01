@@ -742,7 +742,8 @@ h5>#filtro {
     display: flex;
     flex-wrap: wrap;
     border: 0.3vh solid hsl(0, 0%, 89%);
-    height: 45vh;
+    height: auto;
+    min-height: 45vh;
     width: 98vh;
     background-color: #e8dcff;
     border-radius: 2vh;
@@ -1825,3 +1826,12 @@ td{
 }
 
 
+@media (min-width:492px ) and (max-width:750px) {
+    #tabla {
+        display: flex;
+        height: 37vh;
+        font-size: 16px;
+        line-height: 1.2;
+        align-items: flex-start;
+    }
+}

@@ -1120,9 +1120,9 @@ table {
     background-color: pink;
     color: #ffffff;
     text-decoration: none;
+    border-radius: 0 0 1vh 1vh;
     text-align: center;
     box-sizing: border-box;
-
 }
 
 .addCart hover {

@@ -1807,15 +1807,15 @@ div>input {
     height: 6vh;
 }
 
-.addCart{
+.addCart {
     width: 100%;
     padding: 7px;
     background-color: pink;
     color: #ffffff;
     text-decoration: none;
+    border-radius: 0 0 1vh 1vh;
     text-align: center;
     box-sizing: border-box;
-
 }
 
 .addCart hover{

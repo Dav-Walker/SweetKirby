@@ -1,15 +1,26 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'core/estilo.css' %}">
 {% block contenido %}
-
-    <div id="h1login">
-        <h1>Registro</h1>
-    </div>
-
-    <form action= "" method="post" class="registro">
+<div id="h1registro">
+    <h1>Registro</h1>
+</div>
+<div id="registro">
+    <form action="" method="post" class="Registro">
         {% csrf_token %}
-        {{ form.as_p }}
-        <p>¿Ya tienes una cuenta? <a href="{% url 'login' %}">Inicia sesión aquí</a>.</p>
-        <button type="submit">Registrarse</button>
+        {% for field in form %}
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field }}
+            {% if field.help_text %}
+                <p class="help-text">{{ field.help_text | safe }}</p>
+            {% endif %}
+            {% if field.errors %}
+                <p class="error-message">{{ field.errors }}</p>
+            {% endif %}
+        {% endfor %}
+        <p class="centro-texto">¿Ya tienes una cuenta? <a href="{% url 'login' %}">Inicia sesión aquí</a>.</p>
+        <div id="botonregistro">
+            <button type="submit" class="boton-registro">Registrarse</button>
+        </div>
     </form>
+</div>
 {% endblock %}

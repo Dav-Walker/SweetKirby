@@ -742,7 +742,8 @@ h5>#filtro {
     display: flex;
     flex-wrap: wrap;
     border: 0.3vh solid hsl(0, 0%, 89%);
-    height: 45vh;
+    height: auto;
+    min-height: 45vh;
     width: 98vh;
     background-color: #e8dcff;
     border-radius: 2vh;

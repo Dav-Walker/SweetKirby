@@ -1873,7 +1873,7 @@ div>input {
     outline: none;
 }
 
-.Login>button {
+.Login>#botonlogin {
 
     padding: 2vh;
     min-width: 150px;
@@ -1883,7 +1883,12 @@ div>input {
     justify-content: center;
     flex-wrap: nowrap;
     align-items: center;
-    font-weight: bold;
+    font-weight: bold ;
+    color: aliceblue ;
+    font-size: 1rem;
+    background-color: #e9abf1;
+    
+    
 }
 
 table,
@@ -1959,6 +1964,10 @@ td {
     flex-wrap: nowrap;
     align-items: center;
     font-weight: bold;
+    font-weight: bold ;
+    color: aliceblue ;
+    font-size: 1rem;
+    background-color: #e9abf1;
 }
 
 

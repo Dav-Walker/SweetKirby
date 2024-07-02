@@ -1249,9 +1249,11 @@ td>img {
 }
 
 .formulario-pedidos>label {
+    display: flex;
     color: #000000;
     font-size: medium;
     height: 1vh;
+    justify-content: flex-start;
 }
 
 .formulario-pedidos input {
@@ -1296,6 +1298,10 @@ td>img {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+}
+.formulario-pedidos3 label ,.formulario-pedidos3 input,.formulario-pedidos6 label ,.formulario-pedidos2 label ,.formulario-pedidos4 label ,.formulario-pedidos5 label {
+    display: flex;
+    justify-content: flex-start;
 }
 
 
@@ -1425,8 +1431,16 @@ label>.formulario-pedidos5 {
     flex-direction: column;
     gap: 1vh;
 }
+.formulario-pedidos6 .form-check {
+    width: 7.5vh;
+}
+
+.formulario-pedidos6 .form-check-label {
+    width: 17.5vh !important;
+}
 
 .checkradios {
+    width: 57vh;
     display: flex;
     justify-content: space-between;
 }
@@ -1459,7 +1473,12 @@ label>.formulario-pedidos5 {
 }
 
 
-
+@media (max-width: 1090px) {
+    .formulario-pedidos>label{
+        display: flex;
+        justify-content: center;
+    }
+}
 /* -------------------------------------------------- RESPONSIVIDAD ------------------------------------------*/
 
 @media (max-width: 1400px) {
@@ -1513,7 +1532,7 @@ label>.formulario-pedidos5 {
         flex-direction: column;
         align-items: center;
         gap: 3vh;
-        margin-top: 3vh;
+        margin-top: 10vh;
     }
 
     .espacio-form {
@@ -1586,7 +1605,7 @@ label>.formulario-pedidos5 {
 
     #modal {
         margin-bottom: 3vh;
-        margin-top: 4vh;
+        margin-top: 15vh;
     }
 }
 

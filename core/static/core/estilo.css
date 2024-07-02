@@ -1626,9 +1626,26 @@ label>.formulario-pedidos5 {
     .formulario-pedidos input {
         width: 58vh !important;
     }
+    form.was-validated {
+        margin-left: 5vh;
+        margin-top: 5vh;
 
+    }
     .pos-error {
         width: 58vh;
+    }
+    .formulario-pedidos6 .form-control {
+        width: 58vh !important;
+    }
+
+    .checkradios {
+        width: 48vh;
+    }
+    .info-extra {
+        align-items: center;
+    }
+    .info-extra label {
+        margin-left: -23vh;
     }
 }
 

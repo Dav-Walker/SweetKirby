@@ -7,29 +7,30 @@
             <div id="logotitle">
                 <div id="sublogotitle">
                     <h1 id="title"><a href="/">SweetKirby</a></h1>
-                    <img src="{% static 'core/kirby1mini.png' %}" alt="logo.png" id="logo">
+                    <img src="{% static 'core/kirby1mini.png' %}" alt="Logo de SweetKirby" id="logo">
                 </div>
             </div>
             <a href="/#about" class="navbar-item">Nuestra Tienda</a>
             <a href="/menu" target="_self" class="navbar-item">Productos</a>
             <a href="/pedidos" target="_self" class="navbar-item">Pedidos Personalizados</a>
-            <a href="/galeria" target="_self" class="navbar-item">Galeria</a>
+            <a href="/galeria" target="_self" class="navbar-item">Galería</a>
             <a href="/#footer" class="navbar-item">Contactos</a>
             {% if user.is_authenticated %}
-            <div class="usuario">{{ user.username}}</div>
+            <div class="usuario">{{ user.username }}</div>
             <form action="{% url 'logout' %}" method="post">
                 {% csrf_token %}
                 <button type="submit">Logout</button>
             </form>
             {% else %}
-            <a href="{% url 'login' %}" class="navbar-item">Iniciar Sesión/Registrarse</a>
+            <a href="{% url 'login' %}" class="navbar-item">Iniciar Sesión</a>
             {% endif %}
             <div id="buy-card-wrapper">
-                <a href="/carrito" class="navbar-item cart-container" type="button" id="toggleButton">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" alt="carrito" width="30px" />
-                                    </a>
+                <a href="/carrito" class="navbar-item cart-container" id="toggleButton">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" alt="Carrito de compras" width="30px">
+                </a>
             </div>
         </nav>
     </div>
 </header>
+
 

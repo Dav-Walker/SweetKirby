@@ -327,7 +327,7 @@ body {
 
 body {
     background-color: beige;
-    margin: 0 auto;
+    margin: 0;
 }
 
 .section-background {
@@ -335,12 +335,12 @@ body {
 }
 
 *:not(#title > a) {
-    font-family: "Comic Neue";
+    font-family: "Comic Neue", sans-serif;
     font-style: normal;
     scroll-behavior: smooth;
 }
 
-#title>a {
+#title > a {
     text-decoration: none;
     color: black;
     border: 2px solid transparent;
@@ -351,72 +351,119 @@ body {
 #navbar {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     height: 11vh;
     animation: bajar 1s;
     font-size: medium;
     font-weight: bold;
-    flex-wrap: wrap;
     padding-bottom: 0.1rem;
+    padding: 0 10px;
 }
 
 .navbar-item {
     color: #383737;
     text-decoration: none;
     position: relative;
+    margin-left: 20px;
 }
 
 #logo {
     height: 10vh;
-    margin-left: 10%;
+    margin-left: 10px;
 }
 
 #logotitle {
     display: flex;
     align-items: center;
-    flex-direction: row-reverse;
-    justify-content: start;
-    flex-basis: 20%;
+    justify-content: flex-start;
 }
 
 #sublogotitle {
     display: flex;
+    align-items: center;
 }
 
 #title {
-    font-family: "Licorice" !important;
+    font-family: "Licorice", sans-serif !important;
     font-weight: 400;
     font-style: normal;
-    vertical-align: center;
-    margin: auto 0;
-    padding-top: 0.5rem;
-    padding-right: 1%;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0.5rem 1%;
 }
 
 #navbar-brand {
     display: flex;
     align-items: center;
-    vertical-align: center;
-    justify-content: end;
-    margin: auto 0;
-    flex-basis: 80%;
-    flex-wrap: wrap;
-    font-size: 17px;
-    font-weight: lighter;
+    justify-content: space-between;
+    width: 100%;
 }
 
-#navbar-brand>a {
+#navbar-brand > a {
     align-items: center;
     vertical-align: middle;
-    justify-content: end;
-    margin: auto 0;
-    margin-right: 1rem;
+    margin: 0;
     padding: 10px;
     border: 2px solid transparent;
     border-radius: 13px;
     transition-duration: 0.2s;
 }
 
+.usuario {
+    margin-left: 20px;
+}
+/* RESPONSIVIDAD NAVBAR*/
+@media(max-width:820px) {
+    #navbar-brand {
+        flex-direction: column;
+        height: fit-content;
+    }
 
+    #navbar {
+        height: fit-content;
+        padding: 20px 0px;
+        flex-direction: column;
+    }
+
+    .card {
+        width: 70%;
+    }
+
+    #section2 {
+        row-gap: 3vh;
+    }
+}
+
+
+form {
+    display: inline;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+button:hover {
+    text-decoration: underline;
+}
+
+#buy-card-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.cart-container {
+    display: flex;
+    align-items: center;
+}
+
+.cart-container img {
+    margin-left: 10px;
+}
 /* --------------------------------------------------------MENÚ--------------------------------------------------------- */
 
 #menu {
@@ -613,7 +660,7 @@ h5>#filtro {
 .add {
     display: flex;
     flex-direction: row;
-    width: 31.75vh;
+    width: 32vh;
     justify-content: center;
     height: 6vh;
 }
@@ -1084,7 +1131,8 @@ h5>#filtro {
         display: flex;
         flex-wrap: wrap;
         border: 0.3vh solid hsl(0, 0%, 89%);
-        height: 40vh;
+        height: auto;
+        min-height: 40vh;
         width: 75vh;
         background-color: #e8dcff;
         border-radius: 2vh;
@@ -1518,7 +1566,7 @@ label>.formulario-pedidos5 {
 
 @media(max-width: 1250px) {
     #banner2 {
-        height: 90vh;
+        height: auto;
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -1699,15 +1747,6 @@ label>.formulario-pedidos5 {
         width: 100%;
     }
 
-    #navbar {
-        flex-wrap: nowrap;
-        flex-direction: column;
-        height: 18vh;
-    }
-
-    #navbar-brand>a {
-        margin-right: 0px;
-    }
 
     .card {
         width: 30%;
@@ -1743,57 +1782,9 @@ label>.formulario-pedidos5 {
 }
 
 
-@media(max-width:630px) {
-    #navbar-brand {
-        flex-direction: column;
-        height: fit-content;
-    }
 
-    #navbar {
-        height: fit-content;
-        padding: 20px 0px;
-    }
 
-    .card {
-        width: 70%;
-    }
 
-    #section2 {
-        row-gap: 3vh;
-    }
-}
-
-/* RESPONSIVIDAD NAVBAR*/
-
-@media(max-width:1080px) {
-    #navbar-brand {
-
-        flex-basis: 79%;
-    }
-}
-
-@media(max-width:1012px) {
-    #navbar-brand {
-
-        flex-basis: 78%;
-    }
-}
-
-@media(max-width:960px) {
-    #navbar-brand {
-        flex-basis: 77%;
-    }
-
-    #navbar-brand>a {
-        padding: 4px;
-    }
-}
-
-@media(max-width:920px) {
-    #navbar-brand>a {
-        padding: 8px;
-    }
-}
 
 
 @media (min-width:492px) and (max-width:750px) {

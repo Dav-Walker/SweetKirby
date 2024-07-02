@@ -613,7 +613,7 @@ h5>#filtro {
 .add {
     display: flex;
     flex-direction: row;
-    width: 31.75vh;
+    width: 32vh;
     justify-content: center;
     height: 6vh;
 }
@@ -1084,7 +1084,8 @@ h5>#filtro {
         display: flex;
         flex-wrap: wrap;
         border: 0.3vh solid hsl(0, 0%, 89%);
-        height: 40vh;
+        height: auto;
+        min-height: 40vh;
         width: 75vh;
         background-color: #e8dcff;
         border-radius: 2vh;
@@ -1499,7 +1500,7 @@ label>.formulario-pedidos5 {
 
 @media(max-width: 1250px) {
     #banner2 {
-        height: 90vh;
+        height: auto;
         flex-direction: column;
         justify-content: center;
         align-items: center;

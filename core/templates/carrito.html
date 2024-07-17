@@ -37,7 +37,6 @@
                                 <th>Precio</th>
                                 <th>Cantidad</th>
                                 <th>Total</th>
-                                <th>Categoria</th>
                                 <th>Eliminar</th>
                             </tr>
                         </thead>
@@ -49,7 +48,6 @@
                                 <td>{{ item.precio }}</td>
                                 <td>{{ item.cantidad }}</td>
                                 <td>{{ item.total }}</td>
-                                <td>{{ item.categoria }}</td>
                                 <td><a href="{% url 'delToCart' item.codigo %}" class="addCart">Eliminar</a></td>
                             </tr>
                             {% endfor %}

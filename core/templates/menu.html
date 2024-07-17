@@ -26,80 +26,45 @@
                     <option value="1">Menor a mayor</option>
                     <option value="2">Mayor a menor</option>
                 </optgroup>
-                <optgroup label="Base">
-                    <option value="1">Bizcocho</option>
-                    <option value="2">Panqueque</option>
-                    <option value="3">Mil Hojas</option>
-                    <option value="4">Hojarasca</option>
-                </optgroup>
             </select>
         </div>
         <section id="menu">
             <section id="section2">
-
                 {% for torta in tortas %}
                 <div class="card card-menu">
                     <div class="card-body">
                         <div class="horizontal-center">
-                            <img src="{{torta.imagen}}"
-                                class="imagen-menu img-menu" alt="torta">
+                            <img src="{{ torta.imagen }}" class="imagen-menu img-menu" alt="torta">
                         </div>
                         <div class="descripcion-container">
                             <div class="descripcion horizontal-center">
-                                {{torta.nombre}}
+                                {{ torta.nombre }}
                             </div>
                             <div class="precio">
                                 <div class="porciones">
-                                    <label for="porciones">Porciones:</label>
-                                    <select name="porciones" id="porciones">
-                                        <option value="">15</option>
-                                        <option value="">20</option>
-                                        <option value="">30</option>
-                                        <option value="">35</option>
+                                    <label for="porciones_{{ torta.codigo }}">Porciones:</label>
+                                    <select name="porciones" id="porciones_{{ torta.codigo }}"
+                                        data-precios='{"15": "{{ torta.precio_15_porciones }}", "20": "{{ torta.precio_20_porciones }}", "25": "{{ torta.precio_25_porciones }}", "30": "{{ torta.precio_30_porciones }}"}'
+                                        onchange="actualizarPrecio(this, '{{ torta.codigo }}'); actualizarEnlace('{{ torta.codigo }}')">
+                                        <option value="15">15</option>
+                                        <option value="20">20</option>
+                                        <option value="25">25</option>
+                                        <option value="30">30</option>
                                     </select>
                                 </div>
-                                <p>{{torta.precio}}</p>
+                                <p id="precio_{{ torta.codigo }}">{{ torta.precio_15_porciones }}</p>
                             </div>
                         </div>
                     </div>
                     <div class="add">
-                        <a href="{% url 'addToCart' torta.codigo %}" Class="addCart">Agregar al carro</a>
+                        <a href="{% url 'addToCart' torta.codigo 15 %}" id="addCart_{{ torta.codigo }}"
+                            class="addCart">Agregar al carro</a>
                     </div>
                 </div>
                 {% endfor %}
-
-
-
-                <div id="paginacion">
-                    <ul class="pagination">
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#">&laquo;</a>
-                        </li>
-                        <li class="page-item active">
-                            <a class="page-link" href="#">1</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">2</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">3</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">4</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">5</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">&raquo;</a>
-                        </li>
-                    </ul>
-                </div>
-
             </section>
         </section>
     </div>
-
 
     <footer id="footer">
         <div class="footer">
@@ -129,6 +94,23 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 
+    <script>
+        function actualizarPrecio(selectElement, tortaId) {
+            var precios = JSON.parse(selectElement.getAttribute('data-precios'));
+            var porciones = selectElement.value;
+            var precioElement = document.getElementById('precio_' + tortaId);
+            precioElement.textContent = precios[porciones];
+        }
+
+        function actualizarEnlace(codigo) {
+            var selectElement = document.getElementById('porciones_' + codigo);
+            var porciones = selectElement.value;
+            var enlace = document.getElementById('addCart_' + codigo);
+            var baseUrl = "{% url 'addToCart' 'codigo_placeholder' '15' %}";
+            var nuevaUrl = baseUrl.replace('codigo_placeholder', codigo).replace('15', porciones);
+            enlace.href = nuevaUrl;
+        }
+    </script>
 </body>
 
 </html>

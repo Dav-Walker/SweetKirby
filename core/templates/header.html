@@ -19,7 +19,7 @@
             <div class="usuario">{{ user.username }}</div>
             <form action="{% url 'logout' %}" method="post">
                 {% csrf_token %}
-                <button type="submit">Logout</button>
+                <button id="logout-btn" type="submit">Salir</button>
             </form>
             {% else %}
             <a href="{% url 'login' %}" class="navbar-item">Iniciar Sesión</a>
@@ -27,10 +27,26 @@
             <div id="buy-card-wrapper">
                 <a href="/carrito" class="navbar-item cart-container" id="toggleButton">
                     <img src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" alt="Carrito de compras" width="30px">
+                    {% if request.session.items and request.session.items > 0 %}
+                    <span class="cart-count">{{ request.session.items }}</span>
+                    {% endif %}
                 </a>
             </div>
         </nav>
     </div>
 </header>
+
+<style>
+.cart-count {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: rgb(176, 66, 209);
+    color: white;
+    border-radius: 50%;
+    padding: 0 5px;
+    font-size: 14px;
+}
+</style>
 
 

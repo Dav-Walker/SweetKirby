@@ -9,11 +9,14 @@ class Categoria(models.Model):
 
 class Producto(models.Model):
     codigo = models.AutoField(primary_key=True)
-    nombre = models.CharField(max_length=40, blank=False)
-    precio = models.IntegerField()
+    nombre = models.CharField(max_length=40)
+    precio_15_porciones = models.IntegerField()
+    precio_20_porciones = models.IntegerField()
+    precio_25_porciones = models.IntegerField()
+    precio_30_porciones = models.IntegerField()
     cantidad = models.IntegerField()
-    imagen = models.CharField(max_length=255, blank=False)
-    categoria = models.ForeignKey(to=Categoria, on_delete = models.CASCADE, null = False, default = 1 )
+    imagen = models.CharField(max_length=255)
+    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.nombre

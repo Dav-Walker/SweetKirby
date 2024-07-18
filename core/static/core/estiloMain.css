@@ -321,7 +321,7 @@ body {
     scroll-behavior: smooth;
 }
 
-#title > a {
+#title>a {
     text-decoration: none;
     color: black;
     border: 2px solid transparent;
@@ -380,7 +380,7 @@ body {
     width: 100%;
 }
 
-#navbar-brand > a {
+#navbar-brand>a {
     align-items: center;
     vertical-align: middle;
     margin: 0;
@@ -393,6 +393,7 @@ body {
 .usuario {
     margin-left: 20px;
 }
+
 /* RESPONSIVIDAD NAVBAR*/
 @media(max-width:820px) {
     #navbar-brand {
@@ -547,8 +548,8 @@ h5>#filtro {
 }
 
 .topsell-card {
-        width: 23%;
-        height: 21.5rem;
+    width: 23%;
+    height: 21.5rem;
 }
 
 .topsell-card .card-body {
@@ -600,11 +601,12 @@ h5>#filtro {
     align-items: center;
     width: 17vh;
 }
-.precio p{
+
+.precio p {
     margin-left: -4vh;
 }
 
-.descripcion-container{
+.descripcion-container {
     margin-bottom: 2vh;
 }
 
@@ -760,10 +762,16 @@ h5>#filtro {
     display: flex;
     flex-wrap: wrap;
     border: 0.3vh solid hsl(0, 0%, 89%);
-    height: 40vh;
+    height: auto;
     width: 98vh;
     background-color: #e8dcff;
     border-radius: 2vh;
+}
+
+#btnbb:hover {
+    background-color: #a162ad;
+    border-color: #be57d3;
+    border-radius: 40px;
 }
 
 #titulo-carro {
@@ -1672,6 +1680,7 @@ label>.formulario-pedidos5 {
         margin: 0px 2vw;
         width: 31%;
     }
+
     .boton {
         margin-top: 50vh;
     }
@@ -1739,6 +1748,7 @@ label>.formulario-pedidos5 {
         width: 32%;
     }
 }
+
 @media (min-width: 751px) and (max-width: 1034px) {
     .topsell-card {
         height: 21.5rem;
@@ -1746,12 +1756,14 @@ label>.formulario-pedidos5 {
         width: 33%;
     }
 }
+
 @media (min-width: 492px) and (max-width: 598px) {
-.topsell-card {
-    width: 50%;
-    height: 21.5rem;
+    .topsell-card {
+        width: 50%;
+        height: 21.5rem;
+    }
 }
-}
+
 /* LOGIN */
 .login {
     width: 100%;
@@ -1782,21 +1794,22 @@ div>input {
     outline: none;
 }
 
-.login > button {
+.login>button {
     width: 60%;
 }
 
 @media (min-width: 492px) and (max-width: 599px) {
-.centro{
-    display: flex;
-    height: calc(70vh - 20%);
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-#about_content {
-    width: 58vh;
-}
+    .centro {
+        display: flex;
+        height: calc(70vh - 20%);
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    #about_content {
+        width: 58vh;
+    }
 }
 
 .boton-index {
@@ -1818,8 +1831,18 @@ div>input {
     box-sizing: border-box;
 }
 
-.addCart hover{
+.addCart hover {
     background-color: #262626;
     color: #ffffff;
 
+}
+
+#logout-btn {
+    margin-left: 2px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.usuario {
+    color: #9c3faf !important;
 }

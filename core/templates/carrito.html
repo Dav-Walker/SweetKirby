@@ -93,28 +93,37 @@
                         {% endif %}
                     </div>
                 </div>
-            </div>
-            {% endif %}
-        </div>
-    </section>
-
-    <div class="modal fade" id="modalPagoExitoso" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Pago Exitoso</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    ¡Tu pago se ha realizado con éxito!
+                {% endif %}
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </section>
+                
+                <div class="modal fade" id="modalPagoExitoso" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Pago Exitoso</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="btn-cerrar-modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                ¡Tu pago se ha realizado con éxito!
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="btn-cerrar-modal-footer">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
-
+                <!RECARGAR PAGINA DESPUES DE APRETAR MODAL>    
+                <script>
+                document.getElementById('btn-cerrar-modal').addEventListener('click', function() {
+                    location.reload();
+                });
+                document.getElementById('btn-cerrar-modal-footer').addEventListener('click', function() {
+                    location.reload();
+                });
+                </script>
+                
     <footer id="footer">
         <div class="footer">
             <div class="row">
@@ -182,6 +191,30 @@
                 });
         });
 
+    </script>
+    <script>
+        document.getElementById('btn-pagar').addEventListener('click', function() {
+            fetch("{% url 'realizar_pago' %}", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                body: JSON.stringify({})
+            }).then(response => response.json())
+              .then(data => {
+                  if (data.success) {
+                      //Limpiar  el carrito
+                      document.getElementById('total-carrito').innerText = '$0.00';
+                  } else {
+                      console.error('Error al procesar el pago');
+                      alert('Hubo un error al procesar el pago.');
+                  }
+              }).catch(error => {
+                  console.error('Error:', error);
+                  alert('Hubo un error al procesar el pago.');
+              });
+        });
     </script>
 </body>
 

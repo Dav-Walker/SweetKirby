@@ -13,14 +13,12 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'core/estiloMain.css' %}">
     <link rel="stylesheet" href="{% static 'core/funciones.js' %}">
-    <script src="{% static 'core/apis.js' %} "></script>
-</html>
+    <script src="{% static 'core/apis.js' %}"></script>
 </head>
 
 <body onload="getusuarios()">
 
     {% include 'header.html' %}
-
 
     <section>
         <div id="banner">
@@ -32,7 +30,6 @@
                     <div class="carousel-item">
                         <img src="{% static 'core/carrusel2.png' %}" class="d-block " alt="...">
                     </div>
-
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
                     data-bs-slide="prev">
@@ -51,6 +48,7 @@
     <section id="topsellers">
         <h1>Productos Destacados</h1>
         <div id="topsell-content">
+            <!-- Producto 1 -->
             <div class="card topsell-card">
                 <div class="valoracion">
                     <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
@@ -60,138 +58,153 @@
                 </div>
                 <div class="card-body">
                     <div class="horizontal-center">
-                        <img src="{{topseller1.imagen}}"
-                            class="imagen-menu img-menu" alt="torta">
+                        <img src="{{ topseller1.imagen }}" class="imagen-menu img-menu" alt="torta">
                     </div>
                     <div class="descripcion-container">
                         <div class="descripcion horizontal-center">
-                            {{topseller1.nombre}}
+                            {{ topseller1.nombre }}
                         </div>
                         <div class="precio">
                             <div class="porciones">
                                 <label>Porciones:</label>
-                                <select name="porciones">
-                                    <option value="">15</option>
-                                    <option value="">20</option>
-                                    <option value="">30</option>
-                                    <option value="">35</option>
+                                <select name="porciones" id="porciones_{{ topseller1.codigo }}"
+                                    data-precios='{"15": "{{ topseller1.precio_15_porciones }}", "20": "{{ topseller1.precio_20_porciones }}", "25": "{{ topseller1.precio_25_porciones }}", "30": "{{ topseller1.precio_30_porciones }}"}'
+                                    onchange="actualizarPrecio(this, '{{ topseller1.codigo }}'); actualizarEnlace('{{ topseller1.codigo }}');">
+                                    <option value="15">15</option>
+                                    <option value="20">20</option>
+                                    <option value="25">25</option>
+                                    <option value="30">30</option>
                                 </select>
                             </div>
-                            <p>{{topseller1.precio}}</p>
+                            <div id="precio_{{ topseller1.codigo }}">Precio: {{ topseller1.precio_15_porciones }}</div>
                         </div>
                     </div>
                     <div class="boton-index">
-                        <a href="{% url 'addToCart' topseller1.codigo %}" Class="addCart">Agregar al carro</a>
+                        <a href="{% url 'addToCart' topseller1.codigo 15 %}" id="addCart_{{ topseller1.codigo }}"
+                            class="addCart">Agregar al carro</a>
                     </div>
                 </div>
-                    </div>
-            <div class="card topsell-card">
-                <div class="valoracion">
-                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
-                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
-                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
-                </div>
-                <div class="card-body">
-                    <div class="horizontal-center">
-                        <img src="{{topseller2.imagen}}"
-                            class="imagen-menu img-menu" alt="torta">
-                    </div>
-                    <div class="descripcion-container">
-                        <div class="descripcion horizontal-center">
-                            {{topseller2.nombre}}
-                        </div>
-                        <div class="precio">
-                            <div class="porciones">
-                                <label>Porciones:</label>
-                                <select name="porciones">
-                                    <option value="">15</option>
-                                    <option value="">20</option>
-                                    <option value="">30</option>
-                                    <option value="">35</option>
-                                </select>
-                            </div>
-                            <p>{{topseller2.precio}}</p>
-                        </div>
-                    </div>
-                    <div class="boton-index">
-                        <a href="{% url 'addToCart' topseller2.codigo %}" Class="addCart">Agregar al carro</a>
-                    </div>
-                </div>
-                    </div>
-            <div class="card topsell-card">
-                <div class="valoracion">
-                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
-                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
-                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
-                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
-                </div>
-                <div class="card-body">
-                    <div class="horizontal-center">
-                        <img src="{{topseller3.imagen}}"
-                            class="imagen-menu img-menu" alt="torta">
-                    </div>
-                    <div class="descripcion-container">
-                        <div class="descripcion horizontal-center">
-                            {{topseller3.nombre}}
-                        </div>
-                        <div class="precio">
-                            <div class="porciones">
-                                <label>Porciones:</label>
-                                <select name="porciones">
-                                    <option value="">15</option>
-                                    <option value="">20</option>
-                                    <option value="">30</option>
-                                    <option value="">35</option>
-                                </select>
-                            </div>
-                            <p>{{topseller3.precio}}</p>
-                        </div>
-                    </div>
-                    <div class="boton-index">
-                        <a href="{% url 'addToCart' topseller3.codigo %}" Class="addCart">Agregar al carro</a>
-                    </div>
-                </div>
-                    </div>
-            <div class="card topsell-card">
-                <div class="valoracion">
-                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
-                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
-                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
-                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
-                </div>
-                <div class="card-body">
-                    <div class="horizontal-center">
-                        <img src="{{topseller4.imagen}}"
-                            class="imagen-menu img-menu" alt="torta">
-                    </div>
-                    <div class="descripcion-container">
-                        <div class="descripcion horizontal-center">
-                            {{topseller4.nombre}}
-                        </div>
-                        <div class="precio">
-                            <div class="porciones">
-                                <label>Porciones:</label>
-                                <select name="porciones">
-                                    <option value="">15</option>
-                                    <option value="">20</option>
-                                    <option value="">30</option>
-                                    <option value="">35</option>
-                                </select>
-                            </div>
-                            <p>{{topseller4.precio}}</p>
-                        </div>
-                    </div>
-                    <div class="boton-index">
-                        <a href="{% url 'addToCart' topseller4.codigo %}" Class="addCart">Agregar al carro</a>
-                    </div>
-                </div>
-                    </div>
-        </div>
-        <div class="boton horizontal-center">
-            <a href="{% static 'core/menu.html' %}" type="button">Todos los productos</a>
-        </div>
+            </div>
 
+            <!-- Producto 2 -->
+            <div class="card topsell-card">
+                <div class="valoracion">
+                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
+                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
+                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
+                </div>
+                <div class="card-body">
+                    <div class="horizontal-center">
+                        <img src="{{ topseller2.imagen }}" class="imagen-menu img-menu" alt="torta">
+                    </div>
+                    <div class="descripcion-container">
+                        <div class="descripcion horizontal-center">
+                            {{ topseller2.nombre }}
+                        </div>
+                        <div class="precio">
+                            <div class="porciones">
+                                <label>Porciones:</label>
+                                <select name="porciones" id="porciones_{{ topseller2.codigo }}"
+                                    data-precios='{"15": "{{ topseller2.precio_15_porciones }}", "20": "{{ topseller2.precio_20_porciones }}", "25": "{{ topseller2.precio_25_porciones }}", "30": "{{ topseller2.precio_30_porciones }}"}'
+                                    onchange="actualizarPrecio(this, '{{ topseller2.codigo }}'); actualizarEnlace('{{ topseller2.codigo }}')">
+                                    <option value="15">15</option>
+                                    <option value="20">20</option>
+                                    <option value="25">25</option>
+                                    <option value="30">30</option>
+                                </select>
+                            </div>
+                            <div id="precio_{{ topseller2.codigo }}">Precio: {{ topseller2.precio_15_porciones }}</div>
+                        </div>
+                    </div>
+                    <div class="boton-index">
+                        <a href="{% url 'addToCart' topseller2.codigo 15 %}" id="addCart_{{ topseller2.codigo }}"
+                            class="addCart">Agregar al carro</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 3 -->
+            <div class="card topsell-card">
+                <div class="valoracion">
+                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
+                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
+                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
+                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
+                </div>
+                <div class="card-body">
+                    <div class="horizontal-center">
+                        <img src="{{ topseller3.imagen }}" class="imagen-menu img-menu" alt="torta">
+                    </div>
+                    <div class="descripcion-container">
+                        <div class="descripcion horizontal-center">
+                            {{ topseller3.nombre }}
+                        </div>
+                        <div class="precio">
+                            <div class="porciones">
+                                <label>Porciones:</label>
+                                <select name="porciones" id="porciones_{{ topseller3.codigo }}"
+                                    data-precios='{"15": "{{ topseller3.precio_15_porciones }}", "20": "{{ topseller3.precio_20_porciones }}", "25": "{{ topseller3.precio_25_porciones }}", "30": "{{ topseller3.precio_30_porciones }}"}'
+                                    onchange="actualizarPrecio(this, '{{ topseller3.codigo }}'); actualizarEnlace('{{ topseller3.codigo }}')">
+                                    <option value="15">15</option>
+                                    <option value="20">20</option>
+                                    <option value="25">25</option>
+                                    <option value="30">30</option>
+                                </select>
+                            </div>
+                            <div id="precio_{{ topseller3.codigo }}">Precio: {{ topseller3.precio_15_porciones }}</div>
+                        </div>
+                    </div>
+                    <div class="boton-index">
+                        <a href="{% url 'addToCart' topseller3.codigo 15 %}" id="addCart_{{ topseller3.codigo }}"
+                            class="addCart">Agregar al carro</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 4 -->
+            <div class="card topsell-card">
+                <div class="valoracion">
+                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
+                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
+                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
+                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
+                </div>
+                <div class="card-body">
+                    <div class="horizontal-center">
+                        <img src="{{ topseller4.imagen }}" class="imagen-menu img-menu" alt="torta">
+                    </div>
+                    <div class="descripcion-container">
+                        <div class="descripcion horizontal-center">
+                            {{ topseller4.nombre }}
+                        </div>
+                        <div class="precio">
+                            <div class="porciones">
+                                <label>Porciones:</label>
+                                <select name="porciones" id="porciones_{{ topseller4.codigo }}"
+                                    data-precios='{"15": "{{ topseller4.precio_15_porciones }}", "20": "{{ topseller4.precio_20_porciones }}", "25": "{{ topseller4.precio_25_porciones }}", "30": "{{ topseller4.precio_30_porciones }}"}'
+                                    onchange="actualizarPrecio(this, '{{ topseller4.codigo }}'); actualizarEnlace('{{ topseller4.codigo }}')">
+                                    <option value="15">15</option>
+                                    <option value="20">20</option>
+                                    <option value="25">25</option>
+                                    <option value="30">30</option>
+                                </select>
+                            </div>
+                            <div id="precio_{{ topseller4.codigo }}">Precio: {{ topseller4.precio_15_porciones }}</div>
+                        </div>
+                    </div>
+                    <div class="boton-index">
+                        <a href="{% url 'addToCart' topseller4.codigo 15 %}" id="addCart_{{ topseller4.codigo }}"
+                            class="addCart">Agregar al carro</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br> <br>
+        <div class="boton horizontal-center">
+            <a href="/menu" type="button" style="padding: 12px;" id="btnbb">Todos los productos</a>
+        </div>
     </section>
+
 
     <section id="about">
         <h1>Nuestra Tienda</h1>
@@ -200,18 +213,17 @@
                 <p>En Sweet Kirby, nuestra pasión es llevar la dulzura y la alegría del universo de Kirby directamente
                     a tu vida a través de deliciosos postres y creaciones irresistibles. Cada bocado está lleno de amor
                     y magia, inspirado por el encanto único de Kirby y sus amigos. Te invitamos a visitar nuestra tienda
-                    en: </p> <br>
+                    en: </p>
+                <br>
                 <p style="color: blueviolet; font-weight: bold;">123 Calle Dreamland,
-                    Ciudad Dulce, Mundo Pastelero </p><br>
+                    Ciudad Dulce, Mundo Pastelero </p>
+                <br>
                 <p>¡Déjanos endulzar tus momentos más especiales con la magia de Sweet Kirby!</p>
-
-
             </div>
             <div class="mapa">
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1659.7784404890654!2d-71.21541704675138!3d-33.69453635824638!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x966255eae610cb2f%3A0xc3fdb55ead51065b!2sDuoc%20UC%3A%20Sede%20Melipilla!5e0!3m2!1ses!2scl!4v1712368111405!5m2!1ses!2scl"
-                    style="border-radius:40px; border-color: transparent; box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);width:590px;height:440px;
-                "
+                    style="border-radius:40px; border-color: transparent; box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);width:590px;height:440px;"
                     allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
@@ -232,9 +244,10 @@
                     <div class="reviews-body-wrapper">
                         <div class="card-body">
                             <h5 id="name1" class="card-title">Nombre</h5>
-                            <p id="joke1" class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                additional content. This content is a little bit longer.</p>
-                            <p id="punchline1" class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                            <p id="joke1" class="card-text">This is a wider card with supporting text below as a natural
+                                lead-in to additional content. This content is a little bit longer.</p>
+                            <p id="punchline1" class="card-text"><small class="text-body-secondary">Last updated 3 mins
+                                    ago</small></p>
                         </div>
                     </div>
                 </div>
@@ -247,9 +260,10 @@
                     <div class="reviews-body-wrapper">
                         <div class="card-body">
                             <h5 id="name2" class="card-title">Nombre</h5>
-                            <p id="joke2" class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                additional content. This content is a little bit longer.</p>
-                            <p id="punchline2" class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                            <p id="joke2" class="card-text">This is a wider card with supporting text below as a natural
+                                lead-in to additional content. This content is a little bit longer.</p>
+                            <p id="punchline2" class="card-text"><small class="text-body-secondary">Last updated 3 mins
+                                    ago</small></p>
                         </div>
                     </div>
                 </div>
@@ -262,9 +276,10 @@
                     <div class="reviews-body-wrapper">
                         <div class="card-body">
                             <h5 id="name3" class="card-title">Nombre</h5>
-                            <p id="joke3" class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                additional content. This content is a little bit longer.</p>
-                            <p id="punchline3" class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                            <p id="joke3" class="card-text">This is a wider card with supporting text below as a natural
+                                lead-in to additional content. This content is a little bit longer.</p>
+                            <p id="punchline3" class="card-text"><small class="text-body-secondary">Last updated 3 mins
+                                    ago</small></p>
                         </div>
                     </div>
                 </div>
@@ -294,10 +309,28 @@
         </div>
     </footer>
 
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+
+    <script>
+        function actualizarPrecio(selectElement, tortaId) {
+            var precios = JSON.parse(selectElement.getAttribute('data-precios'));
+            var porciones = selectElement.value;
+            var precioElement = document.getElementById('precio_' + tortaId);
+            precioElement.textContent = 'Precio: ' + precios[porciones];
+        }
+
+
+        function actualizarEnlace(codigo) {
+            var selectElement = document.getElementById('porciones_' + codigo);
+            var porciones = selectElement.value;
+            var enlace = document.getElementById('addCart_' + codigo);
+            var baseUrl = "{% url 'addToCart' 'codigo_placeholder' '15' %}";
+            var nuevaUrl = baseUrl.replace('codigo_placeholder', codigo).replace('15', porciones);
+            enlace.href = nuevaUrl;
+        }
+    </script>
 
 </body>
 

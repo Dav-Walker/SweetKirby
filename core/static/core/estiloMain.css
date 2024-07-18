@@ -1837,12 +1837,20 @@ div>input {
 
 }
 
+<<<<<<< HEAD
 #logout-btn {
+=======
+#logout-btn{
+>>>>>>> d791c5e76978a0a7b4d967d7588788fbfaaa1eb6
     margin-left: 2px;
     border-radius: 10px;
     width: 100%;
 }
 
+<<<<<<< HEAD
 .usuario {
+=======
+.usuario{
+>>>>>>> d791c5e76978a0a7b4d967d7588788fbfaaa1eb6
     color: #9c3faf !important;
 }

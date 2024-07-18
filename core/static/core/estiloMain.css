@@ -1304,6 +1304,8 @@ label>.formulario-pedidos5 {
     display: flex;
     justify-content: center;
     background-color: beige;
+    margin-top: 8%;
+    margin-bottom: 2%;
 }
 
 .valido {
@@ -1409,15 +1411,43 @@ label>.formulario-pedidos5 {
     height: 2vh;
 }
 
+input#correo {
+    margin-bottom: 7vh;
+}
 /* -------------------------------------------------- RESPONSIVIDAD ------------------------------------------*/
-@media (min-width: 599px) and (max-width: 750px) {
+@media (min-width: 556px) and (max-width: 597px) {
+    .formulario-pedidos6 .form-control {
+        align-self: center;
+    }
+    .checkradios {
+        display: flex;
+        justify-content: space-between;
+        width: 45vh;
+        margin-left: 5.5vh;
+    }
+}
+@media (min-width: 492px) and (max-width: 597px) {
     #navbar-brand {
         flex-direction: column;
         height: fit-content;
     }
+    #encabezado-pedidop>h1 {
+        width: 95% !important;
+        margin-bottom: 12vh !important;
+    }
+    div#encabezado-pedidop {
+        display: flex;
+        justify-content: center;
+    }
+    .formulario-pedidos6 .form-control {
+        width: 58vh !important;
+    }
+}
 
-
-
+    .formulario-pedidos6 label {
+        align-self: center;
+        justify-content: center;
+    }
     .buy-card {
         display: none;
         position: absolute;
@@ -1576,7 +1606,7 @@ label>.formulario-pedidos5 {
         align-items: center;
         justify-content: center;
     }
-}
+
 
 @media (min-width: 760px) and (max-width: 995px) {
     #index {
@@ -1599,7 +1629,7 @@ label>.formulario-pedidos5 {
     }
 }
 
-@media (min-width: 1000px) and (max-width: 1250px) {
+@media (min-width: 492px) and (max-width: 1250px) {
     .info-personal {
         display: flex;
         background-color: beige;
@@ -1623,7 +1653,7 @@ label>.formulario-pedidos5 {
 
     .titulo-perso {
         justify-content: center;
-        margin-top: 15%;
+        margin-top: 20%;
     }
 
     .info-torta {
@@ -1666,7 +1696,8 @@ label>.formulario-pedidos5 {
         color: #825e21;
         font-family: "Concert One", sans-serif !important;
         font-weight: 400;
-        margin-top: 9vh;
+        margin-top: 0vh;
+        margin-bottom: 10vh;
     }
 
     .formulario-pedidos6 {
@@ -1678,8 +1709,8 @@ label>.formulario-pedidos5 {
     }
 
     #modal {
-        margin-bottom: 3vh;
-        margin-top: 4vh;
+        margin-bottom: 4vh;
+        margin-top: 12vh;
     }
 
     .resumen-carrito {
@@ -1709,6 +1740,10 @@ label>.formulario-pedidos5 {
     }
 }
 
+
+@media (max-width: 600px) {
+
+}
 
     #topsell-content {
         height: 50%;

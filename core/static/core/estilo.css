@@ -416,7 +416,16 @@ body {
 
 .usuario {
     margin-left: 20px;
+    color: #9c3faf !important;
 }
+
+#logout-btn {
+    margin-left: 2px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+
 
 /* RESPONSIVIDAD NAVBAR*/
 @media(max-width:1440px) {
@@ -2049,22 +2058,3 @@ td {
     margin-bottom: 7vh;
 }
 
-<<<<<<< HEAD
-#navbar-brand {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    width: 100%;
-}
-
-#navbar-brand > a {
-    align-items: center;
-    vertical-align: middle;
-    margin: 0;
-    padding: 10px;
-    border: 2px solid transparent;
-    border-radius: 13px;
-    transition-duration: 0.2s;
-}
-=======
->>>>>>> d791c5e76978a0a7b4d967d7588788fbfaaa1eb6

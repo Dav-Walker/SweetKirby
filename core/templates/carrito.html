@@ -37,6 +37,7 @@
                                 <th>Imagen</th>
                                 <th>Nombre</th>
                                 <th>Precio</th>
+                                <th>Porciones</th>
                                 <th>Cantidad</th>
                                 <th>Total</th>
                                 <th>Eliminar</th>
@@ -48,6 +49,7 @@
                                 <td><img class="product-image" src="{{ item.imagen }}" class="imagen-menu img-menu" alt="{{ item.nombre }}"></td>
                                 <td>{{ item.nombre }}</td>
                                 <td>{{ item.precio }}</td>
+                                <td>{{ item.porciones }}</td>
                                 <td>{{ item.cantidad }}</td>
                                 <td>{{ item.total }}</td>
                                 <td><a href="{% url 'delToCart' item.codigo %}" class="addCart">Eliminar</a></td>

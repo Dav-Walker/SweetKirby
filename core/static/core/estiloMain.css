@@ -729,6 +729,10 @@ h5>#filtro {
 
 #buy-card-wrapper {
     margin-right: 1rem;
+    border-radius: 1vh;
+    border: 2px solid transparent;
+    border-radius: 13px;
+    transition-duration: 0.2s;
 }
 
 #buy-card-wrapper:hover {
@@ -1098,50 +1102,6 @@ h5>#filtro {
     width: 100%;
 }
 
-/* -----------------------------------------------------------------------------------GALERIA--------------------------------------------------------------------------- */
-#foto-galeria {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    justify-content: center;
-    padding: 20px;
-}
-
-.gallery {
-    border: 4px solid #acceef;
-    border-radius: 13px;
-    transition-duration: 0.5s;
-}
-
-.gallery:hover {
-    border: 4px solid #ff80c6;
-    border-radius: 13px;
-    transition-duration: 0.2s;
-}
-
-.gallery img {
-    width: 100%;
-    height: 30vh;
-    border-radius: 10px;
-}
-
-.desc {
-    padding: 15px;
-    text-align: center;
-}
-
-#encabezado-galeria>h1 {
-    margin: 2%;
-    width: 100%;
-    text-align: center;
-    height: 40px;
-    line-height: 5vh;
-    font-size: 3.5rem;
-    color: #825e21;
-    font-family: "Concert One", sans-serif !important;
-    font-weight: 400;
-    margin-bottom: 19px;
-}
 
 /* ---------------------------------------------------------------------------PEDIDOS PERSONALIZADOS------------------------------------------------------------------- */
 #banner3 {
@@ -1545,11 +1505,6 @@ input#correo {
         row-gap: 3vh;
     }
 
-    #foto-galeria {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-
     .footer .row ul {
         display: flex;
         flex-wrap: nowrap;
@@ -1616,11 +1571,6 @@ input#correo {
 
     .card {
         width: 30%;
-    }
-
-    #foto-galeria {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 30px;
     }
 
 
@@ -1763,7 +1713,7 @@ input#correo {
     }
 
     .boton {
-        margin-top: 50vh;
+        margin-top: 5vh;
     }
 
     #reviews-content {
@@ -1808,7 +1758,7 @@ input#correo {
         flex-direction: row;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 0.5rem;
+        gap: 3rem;
         margin: 0 auto;
         align-items: center;
     }

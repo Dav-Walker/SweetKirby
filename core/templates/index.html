@@ -80,11 +80,126 @@
                         </div>
                     </div>
                     <div class="boton-index">
+<<<<<<< HEAD
                         <a href="{% url 'addToCart' topseller1.codigo 15 %}" id="addCart_{{ topseller1.codigo }}"
                             class="addCart">Agregar al carro</a>
                     </div>
                 </div>
             </div>
+=======
+                        <a href="{% url 'addToCart' topseller1.codigo 15 %}" class="addCart">Agregar al carro</a>
+
+                    </div>
+                </div>
+                    </div>
+            <div class="card topsell-card">
+                <div class="valoracion">
+                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
+                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
+                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
+                </div>
+                <div class="card-body">
+                    <div class="horizontal-center">
+                        <img src="{{topseller2.imagen}}"
+                            class="imagen-menu img-menu" alt="torta">
+                    </div>
+                    <div class="descripcion-container">
+                        <div class="descripcion horizontal-center">
+                            {{topseller2.nombre}}
+                        </div>
+                        <div class="precio">
+                            <div class="porciones">
+                                <label>Porciones:</label>
+                                <select name="porciones">
+                                    <option value="">15</option>
+                                    <option value="">20</option>
+                                    <option value="">30</option>
+                                    <option value="">35</option>
+                                </select>
+                            </div>
+                            <p>{{topseller2.precio}}</p>
+                        </div>
+                    </div>
+                    <div class="boton-index">
+                        <a href="{% url 'addToCart' topseller1.codigo 15 %}" class="addCart">Agregar al carro</a>
+                    </div>
+                </div>
+                    </div>
+            <div class="card topsell-card">
+                <div class="valoracion">
+                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
+                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
+                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
+                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
+                </div>
+                <div class="card-body">
+                    <div class="horizontal-center">
+                        <img src="{{topseller3.imagen}}"
+                            class="imagen-menu img-menu" alt="torta">
+                    </div>
+                    <div class="descripcion-container">
+                        <div class="descripcion horizontal-center">
+                            {{topseller3.nombre}}
+                        </div>
+                        <div class="precio">
+                            <div class="porciones">
+                                <label>Porciones:</label>
+                                <select name="porciones">
+                                    <option value="">15</option>
+                                    <option value="">20</option>
+                                    <option value="">30</option>
+                                    <option value="">35</option>
+                                </select>
+                            </div>
+                            <p>{{topseller3.precio}}</p>
+                        </div>
+                    </div>
+                    <div class="boton-index">
+                        <a href="{% url 'addToCart' topseller1.codigo 15 %}" class="addCart">Agregar al carro</a>
+
+                    </div>
+                </div>
+                    </div>
+            <div class="card topsell-card">
+                <div class="valoracion">
+                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
+                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
+                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
+                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
+                </div>
+                <div class="card-body">
+                    <div class="horizontal-center">
+                        <img src="{{topseller4.imagen}}"
+                            class="imagen-menu img-menu" alt="torta">
+                    </div>
+                    <div class="descripcion-container">
+                        <div class="descripcion horizontal-center">
+                            {{topseller4.nombre}}
+                        </div>
+                        <div class="precio">
+                            <div class="porciones">
+                                <label>Porciones:</label>
+                                <select name="porciones">
+                                    <option value="">15</option>
+                                    <option value="">20</option>
+                                    <option value="">30</option>
+                                    <option value="">35</option>
+                                </select>
+                            </div>
+                            <p>{{topseller4.precio}}</p>
+                        </div>
+                    </div>
+                    <div class="boton-index">
+                        <a href="{% url 'addToCart' topseller1.codigo 15 %}" class="addCart">Agregar al carro</a>
+
+                    </div>
+                </div>
+                    </div>
+        </div>
+        <div class="boton horizontal-center">
+            <a href="{% static 'core/menu.html' %}" type="button">Todos los productos</a>
+        </div>
+>>>>>>> d791c5e76978a0a7b4d967d7588788fbfaaa1eb6
 
             <!-- Producto 2 -->
             <div class="card topsell-card">

@@ -1982,6 +1982,7 @@ td {
     margin-bottom: 7vh;
 }
 
+<<<<<<< HEAD
 #navbar-brand {
     display: flex;
     align-items: center;
@@ -1998,3 +1999,5 @@ td {
     border-radius: 13px;
     transition-duration: 0.2s;
 }
+=======
+>>>>>>> d791c5e76978a0a7b4d967d7588788fbfaaa1eb6

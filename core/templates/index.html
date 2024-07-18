@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{% static 'core/estiloMain.css' %}">
     <link rel="stylesheet" href="{% static 'core/funciones.js' %}">
     <script src="{% static 'core/apis.js' %}"></script>
+    <script src="{% static 'core/apis.js' %}"></script>
 </head>
 
 <body onload="getusuarios()">
@@ -49,6 +50,7 @@
         <h1>Productos Destacados</h1>
         <div id="topsell-content">
             <!-- Producto 1 -->
+            <!-- Producto 1 -->
             <div class="card topsell-card">
                 <div class="valoracion">
                     <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
@@ -80,11 +82,136 @@
                         </div>
                     </div>
                     <div class="boton-index">
+<<<<<<< HEAD
                         <a href="{% url 'addToCart' topseller1.codigo 15 %}" id="addCart_{{ topseller1.codigo }}"
                             class="addCart">Agregar al carro</a>
                     </div>
                 </div>
             </div>
+=======
+                        <a href="{% url 'addToCart' topseller1.codigo 15 %}" class="addCart">Agregar al carro</a>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 2 -->
+            <div class="card topsell-card">
+                <div class="valoracion">
+                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
+                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
+                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
+                </div>
+                <div class="card-body">
+                    <div class="horizontal-center">
+                        <img src="{{ topseller2.imagen }}" class="imagen-menu img-menu" alt="torta">
+                    </div>
+                    <div class="descripcion-container">
+                        <div class="descripcion horizontal-center">
+                            {{ topseller2.nombre }}
+                        </div>
+                        <div class="precio">
+                            <div class="porciones">
+                                <label>Porciones:</label>
+                                <select name="porciones" id="porciones_{{ topseller2.codigo }}"
+                                    data-precios='{"15": "{{ topseller2.precio_15_porciones }}", "20": "{{ topseller2.precio_20_porciones }}", "25": "{{ topseller2.precio_25_porciones }}", "30": "{{ topseller2.precio_30_porciones }}"}'
+                                    onchange="actualizarPrecio(this, '{{ topseller2.codigo }}'); actualizarEnlace('{{ topseller2.codigo }}')">
+                                    <option value="15">15</option>
+                                    <option value="20">20</option>
+                                    <option value="25">25</option>
+                                    <option value="30">30</option>
+                                </select>
+                            </div>
+                            <div id="precio_{{ topseller2.codigo }}">Precio: {{ topseller2.precio_15_porciones }}</div>
+                        </div>
+                    </div>
+                    <div class="boton-index">
+                        <a href="{% url 'addToCart' topseller1.codigo 15 %}" class="addCart">Agregar al carro</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 3 -->
+            <div class="card topsell-card">
+                <div class="valoracion">
+                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
+                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
+                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
+                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
+                </div>
+                <div class="card-body">
+                    <div class="horizontal-center">
+                        <img src="{{ topseller3.imagen }}" class="imagen-menu img-menu" alt="torta">
+                    </div>
+                    <div class="descripcion-container">
+                        <div class="descripcion horizontal-center">
+                            {{ topseller3.nombre }}
+                        </div>
+                        <div class="precio">
+                            <div class="porciones">
+                                <label>Porciones:</label>
+                                <select name="porciones" id="porciones_{{ topseller3.codigo }}"
+                                    data-precios='{"15": "{{ topseller3.precio_15_porciones }}", "20": "{{ topseller3.precio_20_porciones }}", "25": "{{ topseller3.precio_25_porciones }}", "30": "{{ topseller3.precio_30_porciones }}"}'
+                                    onchange="actualizarPrecio(this, '{{ topseller3.codigo }}'); actualizarEnlace('{{ topseller3.codigo }}')">
+                                    <option value="15">15</option>
+                                    <option value="20">20</option>
+                                    <option value="25">25</option>
+                                    <option value="30">30</option>
+                                </select>
+                            </div>
+                            <div id="precio_{{ topseller3.codigo }}">Precio: {{ topseller3.precio_15_porciones }}</div>
+                        </div>
+                    </div>
+                    <div class="boton-index">
+                        <a href="{% url 'addToCart' topseller1.codigo 15 %}" class="addCart">Agregar al carro</a>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 4 -->
+            <div class="card topsell-card">
+                <div class="valoracion">
+                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
+                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
+                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
+                    <img src="{% static 'core/estrella.png' %}" height="45vh" alt="">
+                </div>
+                <div class="card-body">
+                    <div class="horizontal-center">
+                        <img src="{{ topseller4.imagen }}" class="imagen-menu img-menu" alt="torta">
+                    </div>
+                    <div class="descripcion-container">
+                        <div class="descripcion horizontal-center">
+                            {{ topseller4.nombre }}
+                        </div>
+                        <div class="precio">
+                            <div class="porciones">
+                                <label>Porciones:</label>
+                                <select name="porciones" id="porciones_{{ topseller4.codigo }}"
+                                    data-precios='{"15": "{{ topseller4.precio_15_porciones }}", "20": "{{ topseller4.precio_20_porciones }}", "25": "{{ topseller4.precio_25_porciones }}", "30": "{{ topseller4.precio_30_porciones }}"}'
+                                    onchange="actualizarPrecio(this, '{{ topseller4.codigo }}'); actualizarEnlace('{{ topseller4.codigo }}')">
+                                    <option value="15">15</option>
+                                    <option value="20">20</option>
+                                    <option value="25">25</option>
+                                    <option value="30">30</option>
+                                </select>
+                            </div>
+                            <div id="precio_{{ topseller4.codigo }}">Precio: {{ topseller4.precio_15_porciones }}</div>
+                        </div>
+                    </div>
+                    <div class="boton-index">
+                        <a href="{% url 'addToCart' topseller1.codigo 15 %}" class="addCart">Agregar al carro</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br> <br>
+        <div class="boton horizontal-center">
+            <a href="{% static 'core/menu.html' %}" type="button">Todos los productos</a>
+        </div>
+>>>>>>> d791c5e76978a0a7b4d967d7588788fbfaaa1eb6
 
             <!-- Producto 2 -->
             <div class="card topsell-card">

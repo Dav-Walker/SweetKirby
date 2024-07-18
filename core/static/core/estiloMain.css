@@ -1810,6 +1810,17 @@ div>input {
     #about_content {
         width: 58vh;
     }
+    .centro {
+        display: flex;
+        height: calc(70vh - 20%);
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    #about_content {
+        width: 58vh;
+    }
 }
 
 .boton-index {
@@ -1831,7 +1842,7 @@ div>input {
     box-sizing: border-box;
 }
 
-.addCart hover {
+.addCart:hover{
     background-color: #262626;
     color: #ffffff;
 

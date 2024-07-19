@@ -137,6 +137,7 @@ def realizar_pago(request):
         # Limpiar el carrito después de realizar el pago
         if 'carrito' in request.session:
             del request.session['carrito']
+            request.session.flush()
         
         return JsonResponse({'success': True})
     return JsonResponse({'success': False})

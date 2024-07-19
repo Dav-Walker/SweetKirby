@@ -592,14 +592,23 @@ h5>#filtro {
     border-radius: 13px;
     transition-duration: 0.2s;
 }
-
 .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 .topsell-card {
-    width: 23%;
+    width: 37vh;
     height: 21.5rem;
+}
+@media (min-width: 1140px) and (max-width: 1280px) {
+#topsell-content {
+    width: 128vh !important;
+    }
+}
+@media (min-width: 998px) and (max-width: 1140px) {
+    #topsell-content {
+        width: 128vh !important;
+        }
 }
 
 .topsell-card .card-body {
@@ -1475,7 +1484,7 @@ input#correo {
     .topsell-card {
         height: 21.5rem;
         margin: 0 1.5vw;
-        width: 33%;
+        width: 37vh;
     }
 
     .centro {
@@ -1561,7 +1570,16 @@ input#correo {
         align-items: center;
         justify-content: center;
     }
-
+@media (min-width: 1280px) and (max-width: 1540px) {
+    #topsell-content {
+        flex-wrap: nowrap !important;
+    }
+}
+@media (max-height: 774px) {
+    .topsell-card {
+        height: 20rem !important;
+    }
+}
 
 @media (min-width: 760px) and (max-width: 995px) {
     #index {
@@ -1709,7 +1727,7 @@ input#correo {
     .topsell-card {
         height: 21.5rem;
         margin: 0px 2vw;
-        width: 31%;
+        width: 37vh;
     }
 
     .boton {
@@ -1772,7 +1790,7 @@ input#correo {
     .topsell-card {
         height: 21.5rem;
         margin: 0px 2vw;
-        width: 32%;
+        width: 37vh;
     }
 }
 
@@ -1780,13 +1798,13 @@ input#correo {
     .topsell-card {
         height: 21.5rem;
         margin: 0 1.5vw;
-        width: 33%;
+        width: 37vh;
     }
 }
 
 @media (min-width: 492px) and (max-width: 598px) {
     .topsell-card {
-        width: 50%;
+        width: 37vh;
         height: 21.5rem;
     }
 }

@@ -1046,6 +1046,7 @@ h5>#filtro {
     margin-left: 50vh;
 }
 
+
 /* -------------------------------------------------------------------------------RESUMEN PEDIDO----------------------------------------------------------------------- */
 .resumen-carrito {
     margin-top: 3vh;
@@ -1162,7 +1163,7 @@ h5>#filtro {
     font-weight: bolder;
 }
 
-.boton-pago button {
+.boton-pago {
     background-color: #be57d3;
     color: #ffffff;
     border-radius: 1vh;
@@ -1174,6 +1175,19 @@ h5>#filtro {
     margin-top: 1vh;
     font-weight: bold;
     font-size: medium;
+    display: flex;
+    justify-content: center;
+
+}
+.boton-pago > a{
+    line-height: 40px;
+    color: white;
+    width: 200px;
+    text-align: center;
+    text-decoration: none;
+}
+.boton-pago:hover{
+    background-color: #9c3faf;
 }
 
 .carousel-item>img {

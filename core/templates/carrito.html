@@ -60,6 +60,7 @@
                 </div>
                 {% else %}
                 <h2>Tu carrito está vacío!</h2>
+                
                 {% endif %}
             </div>
             {% if carrito|length > 0 %}
@@ -86,12 +87,11 @@
                     </div>
                     <div class="boton-pago">
                         {% if user.is_authenticated %}
-                        <button type="button" class="btn btn-primary" id="btn-pagar" data-bs-toggle="modal"
-                            data-bs-target="#modalPagoExitoso">
-                            Pagar
-                        </button>
+                        <a href="{% url 'comprar' %}" id="btn-pagar">Pagar</a>
+
+                    
                         {% else %}
-                        <a href="{% url 'login' %}" class="btn btn-primary">Iniciar Sesión para Pagar</a>
+                        <a href="{% url 'login' %}" id="btn-pagar">Iniciar Sesión para Pagar</a>
                         {% endif %}
                     </div>
                 </div>

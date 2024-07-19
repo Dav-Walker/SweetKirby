@@ -5,7 +5,7 @@ from django.shortcuts import redirect, reverse
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
-from .models import Producto
+from .models import *
 from .forms import RegistroForm
 from django.views.decorators.csrf import csrf_exempt
 
@@ -39,6 +39,26 @@ def menu(request):
 
 def pedidos(request):
     return render(request, 'pedidos.html')
+
+def comprar(request):
+    carrito = request.session.get("carrito", [])
+    total = 0 
+    for p in carrito:
+        total =+ p["total"]
+    venta = Venta()
+    venta.cliente = request.user
+    venta.total = total
+    venta.save()
+    for p in carrito:
+        detalle =DetalleVenta()
+        detalle.producto = Producto.objects.get(codigo = p["codigo"])
+        detalle.precio = p["precio"]
+        detalle.cantidad = p["cantidad"]
+        detalle.venta = venta
+        detalle.save()
+        request.session["carrito"] = []
+    return redirect(to="carrito_view") 
+
 
 def delToCart(request, codigo):
     carrito = request.session.get("carrito", [])

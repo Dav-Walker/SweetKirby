@@ -16,5 +16,6 @@ urlpatterns = [
     path('aplicar_descuento/', aplicarDescuento, name='aplicar_descuento'),
     path('realizar_pago/', realizar_pago, name='realizar_pago'),
     path('registro/', registro, name="registro"),
-    path('borrar/', borrarSesion, name="borrar")
+    path('borrar/', borrarSesion, name="borrar"),
+    path('comprar', comprar, name="comprar")
 ]

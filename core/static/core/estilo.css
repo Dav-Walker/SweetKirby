@@ -1401,7 +1401,7 @@ td>img {
 
 .formulario-pedidos2 {
     display: flex;
-    width: 25vh;
+    width: 28vh;
     flex-direction: column;
     gap: 1vh;
 }
@@ -1419,7 +1419,7 @@ td>img {
 
 .formulario-pedidos3 {
     display: flex;
-    width: 25vh;
+    width: 42vh;
     flex-direction: column;
     gap: 2vh;
 

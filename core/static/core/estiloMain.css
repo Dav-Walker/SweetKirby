@@ -1561,7 +1561,16 @@ input#correo {
         align-items: center;
         justify-content: center;
     }
-
+@media (min-width: 1280px) and (max-width: 1540px) {
+    #topsell-content {
+        flex-wrap: nowrap !important;
+    }
+}
+@media (max-height: 774px) {
+    .topsell-card {
+        height: 20rem !important;
+    }
+}
 
 @media (min-width: 760px) and (max-width: 995px) {
     #index {

@@ -421,8 +421,21 @@ body {
 
 #logout-btn {
     margin-left: 2px;
-    border-radius: 10px;
+     background-color: transparent;
+     border: 2px black solid;
+     border-radius: 10px;
+     color: black;
     width: 100%;
+    transition: 0.2s;
+    font-weight: bolder     
+}
+#logout-btn:hover{
+    margin-left: 2px;
+     border: 2px #e974cf solid;
+     border-radius: 10px;
+    width: 100%;
+    transition: 0.2s;
+    text-decoration: none;
 }
 
 
@@ -516,8 +529,18 @@ button:hover {
 }
 
 #buy-card-wrapper {
-    display: flex;
-    align-items: center;
+    margin-right: 1rem;
+    border-radius: 1vh;
+    border: 2px solid transparent;
+    border-radius: 13px;
+    transition-duration: 0.2s;
+}
+
+#buy-card-wrapper:hover {
+    border-radius: 1vh;
+    border: 2px solid #ff80c6;
+    border-radius: 13px;
+    transition-duration: 0.2s;
 }
 
 .cart-container {

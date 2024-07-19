@@ -1175,7 +1175,7 @@ h5>#filtro {
 
 .formulario-pedidos2 {
     display: flex;
-    width: 42vh;
+    width: 28vh;
     flex-direction: column;
     gap: 1vh;
 }
@@ -1192,7 +1192,7 @@ h5>#filtro {
 
 .formulario-pedidos3 {
     display: flex;
-    width: 28vh;
+    width: 42vh;
     flex-direction: column;
     gap: 2vh;
 }

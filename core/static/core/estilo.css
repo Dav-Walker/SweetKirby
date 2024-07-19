@@ -1416,13 +1416,11 @@ td>img {
     border-radius: 1vh;
 }
 
-
 .formulario-pedidos3 {
     display: flex;
     width: 42vh;
     flex-direction: column;
     gap: 2vh;
-
 }
 
 .formulario-pedidos3 label {
